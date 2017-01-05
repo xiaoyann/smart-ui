@@ -1,0 +1,35 @@
+.smart-border-top {
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 1px;
+		border-top: 1px solid #c8c7cc;
+		transform: scaleY(0.5);
+		transform-origin: left top;
+	}
+}
+
+.smart-border-right {
+
+}
+
+.smart-border-bottom {
+	&:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 1px;
+		border-bottom: 1px solid #c8c7cc;
+		transform: scaleY(0.5);
+		transform-origin: left bottom;
+	}
+}
+
+.smart-border-left {
+
+}
