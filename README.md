@@ -1,6 +1,6 @@
 # Smart-UI
 
-Mobile UI Components by Vue.js, is in development.
+Mobile UI Components by Vue.js 2, is in development.
 
 ## Get Preview
 
