@@ -21,10 +21,13 @@
 		height: 100%;
 	}
 }
+.TabBarItem.selected {
+	color: #2b8ff7;
+}
 </style>
 
 <template>
-<a class="TabBarItem" :class="{'selected': selected}" @click="handleClick">
+<div class="TabBarItem" :class="{'selected': selected}" @click="handleClick">
 	<div class="TabBarItem--bd">
 		<div class="TabBarItem--icon" v-if="hasSlot">
 			<slot v-if="selected === false" name="icon"></slot>
@@ -32,7 +35,7 @@
 		</div>
 		<span class="TabBarItem--title">{{title}}</span>
 	</div>	
-</a>
+</div>
 </template>
 
 <script>
@@ -43,7 +46,8 @@ export default {
 		// the title
 		title: {
 			type: String,
-			required: true
+			required: true,
+			default: ''
 		},
 		// navigate to another URL by Router
 		to: String,

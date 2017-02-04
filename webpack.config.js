@@ -5,6 +5,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var config = {
 
 	context: __dirname,
+
+  devtool: 'source-map',
 	
 	entry: {
 		index: './src/index.js'
@@ -49,7 +51,7 @@ var config = {
 	    },
 	   	{
 	    	test: /\.(styl)$/,
-	    	loader: ExtractTextPlugin.extract(['css-loader?minimize', 'stylus-loader'])
+	    	loader: ExtractTextPlugin.extract(['css-loader?minimize&sourceMap', 'stylus-loader'])
 	    }
   	]
   },
@@ -63,7 +65,9 @@ var config = {
 		new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
-      }
+      },
+      sourceMap: true,
+      minimize: true
     }),
 
     // extract css into its own file

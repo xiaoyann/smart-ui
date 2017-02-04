@@ -37,7 +37,7 @@ button {
 			</ul>
 		<TabBar>
 			<TabBarItem :selected="selected === 0" title="首页" @click="selected = 0"/>
-			<TabBarItem :selected="selected === 1" title="关于" @click="selected = 1">
+			<TabBarItem :selected="selected === 1" title="关于" @click="selected = 1"/>
 		</TabBar>
 	</div>
 	<div class="tabBarDemoBox" style="position: fixed; bottom: 0; width: 100%">

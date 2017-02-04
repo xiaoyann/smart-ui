@@ -18,5 +18,11 @@ export default {
 			hobby: [1]
 		}
 	},
+
+	mounted() {
+		setTimeout(() => {
+			this.hobby = ['诛仙']
+		}, 1000)
+	},
 }
 </script>

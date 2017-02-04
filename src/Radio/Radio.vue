@@ -33,6 +33,10 @@ export default {
 		this.checkStatus(this.value)
 	},
 
+	updated() {
+		this.checkStatus(this.value)
+	},
+
 	methods: {
 		setValue(v) {
 			this.$emit('input', v)

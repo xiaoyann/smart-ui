@@ -19,22 +19,17 @@
 }	
 
 .Cell--bd {
-	flex: 2;
 	padding-left: 5px;
 	overflow: hidden;
-}
-
-.Cell--main {
-	float: right;
 	word-break: break-all;
 	font-size: 15px;
 	color: #8e8e90;
 }
 
 .Cell--hd {
+	flex: 1;
 	display: flex;
 	align-items: center;
-	max-width: 60%;
 }
 
 .Cell--title {
@@ -70,21 +65,17 @@
 <template>
 <div class="CellBox" @click="handleClick">
 	<div class="Cell smart-border-top">
-		<div class="Cell--hd">
-			<div class="Cell--icon" v-if="hasIcon">
-				<slot name="icon"></slot>
-			</div>
-			<slot name="header">
+		<div class="Cell--icon" v-if="hasIcon">
+			<slot name="icon"></slot>
+		</div>
+		<slot name="header">
+			<div class="Cell--hd">
 				<span class="Cell--title">{{title}}</span>
-			</slot>
-		</div>
-		<div class="Cell--bd">
-			<div class="Cell--main">
-				<slot name="body">
-					{{content}}
-				</slot>
-			</div>
-		</div>
+			</div>	
+		</slot>
+		<slot name="body">
+			<div class="Cell--bd">{{content}}</div>
+		</slot>
 		<i v-if="hasArrow" class="Cell--arrow"></i>
 	</div>	
 </div>

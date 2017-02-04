@@ -41,6 +41,10 @@ export default {
 		this.checkStatus(this.value)
 	},
 
+	updated() {
+		this.checkStatus(this.value)
+	},
+
 	methods: {
 		setValue(checked, val) {
 			let values = []

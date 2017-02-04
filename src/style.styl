@@ -1,3 +1,5 @@
+/*********** 1px border Start  ***********/
+
 .smart-border-top {
 	&:before {
 		content: "";
@@ -10,10 +12,6 @@
 		transform: scaleY(0.5);
 		transform-origin: left top;
 	}
-}
-
-.smart-border-right {
-
 }
 
 .smart-border-bottom {
@@ -30,6 +28,45 @@
 	}
 }
 
-.smart-border-left {
+/*********** 1px border End  ***********/
 
+
+/*********** Animation Start ***********/
+
+// smart-anim--fade
+.smart-anim--fade-enter-active,
+.smart-anim--fade-leave-active {
+	transition: opacity .3s
 }
+
+.smart-anim--fade-enter,
+.smart-anim--fade-leave-active {
+	opacity: 0
+}
+
+// smart-anim--bottomUp
+.smart-anim--bottomUp-enter-active,
+.smart-anim--bottomUp-leave-active {
+	transition: transform .3s
+}
+
+.smart-anim--bottomUp-enter,
+.smart-anim--bottomUp-leave-active {
+	transform: translateY(100%);
+}
+
+// smart-anim--scale
+.smart-anim--scale-enter-active,
+.smart-anim--scale-leave-active {
+	transition: transform .3s
+}
+
+.smart-anim--scale-enter,
+.smart-anim--scale-leave-active {
+  transform: scale(1.1);
+}
+
+/*********** Animation End ***********/
+
+
+
