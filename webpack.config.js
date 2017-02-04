@@ -19,6 +19,10 @@ var config = {
     filename: 'smart-ui.js'
 	},
 
+  externals: {
+    vue: 'vue'
+  },
+
 	resolve: {
   	extensions: ['.js', '.vue'],
   },
@@ -75,7 +79,7 @@ var config = {
   ],
 
   performance: {
-    hints: process.env.NODE_ENV === 'production'
+    hints: process.env.NODE_ENV === 'production' ? 'warning' : false
   },
 }
 

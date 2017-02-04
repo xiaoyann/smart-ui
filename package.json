@@ -1,12 +1,13 @@
 {
   "name": "smart-ui",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Mobile UI Components by Vue.js",
   "main": "lib/smart-ui.js",
   "scripts": {
     "test": "",
     "dev": "node example/server.js",
-    "build": "node ./webpack.config.js"
+    "build": "NODE_ENV=production node ./webpack.config.js",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
