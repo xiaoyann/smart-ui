@@ -9,6 +9,7 @@
 		<Cell title="Datepicker" to="/Datepicker"></Cell>
 		<Cell title="Selector" to="/Selector"></Cell>
 		<Cell title="Modal" to="/Modal"></Cell>
+		<Cell title="Popup" to="/Popup"></Cell>
 		<Cell title="ActionSheet" to="/ActionSheet"></Cell>
 		<Cell title="Loading" to="/Loading"></Cell>
 		<Cell title="Toast" to="/Toast"></Cell>

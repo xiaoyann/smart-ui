@@ -13,6 +13,7 @@ import Loading from './demos/Loading'
 import Toast from './demos/Toast'
 import Dialog from './demos/Dialog'
 import Loadmore from './demos/Loadmore'
+import Popup from './demos/Popup'
 
 const views = {
 	About,
@@ -29,7 +30,8 @@ const views = {
 	Loading,
 	Toast,
 	Dialog,
-	Loadmore
+	Loadmore,
+	Popup
 }
 
 const routes = Object.keys(views).map(

@@ -49,18 +49,18 @@ var config = {
 	      options: {
           loaders: {
             stylus: ExtractTextPlugin.extract({
-              loader: 'css-loader?minimize!stylus-loader?sourceMap'
+              loader: 'css-loader!stylus-loader?sourceMap'
             })
           }
         }
 	    },
 	    {
 	    	test: /\.css$/,
-	    	loader: ExtractTextPlugin.extract('css-loader?minimize&sourceMap')
+	    	loader: ExtractTextPlugin.extract('css-loader?sourceMap')
 	    },
 	   	{
 	    	test: /\.(styl)$/,
-	    	loader: ExtractTextPlugin.extract(['css-loader?minimize&sourceMap', 'stylus-loader'])
+	    	loader: ExtractTextPlugin.extract(['css-loader?sourceMap', 'stylus-loader'])
 	    }
   	]
   },
@@ -71,13 +71,13 @@ var config = {
     }),
 
     // uglify js
-		new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      },
-      sourceMap: true,
-      minimize: true
-    }),
+		// new webpack.optimize.UglifyJsPlugin({
+  //     compress: {
+  //       warnings: false
+  //     },
+  //     sourceMap: true,
+  //     minimize: true
+  //   }),
 
     // extract css into its own file
     new ExtractTextPlugin('smart-ui.css'),

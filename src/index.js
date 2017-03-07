@@ -10,6 +10,7 @@ import { Field } from './Field'
 import { Datepicker } from './Datepicker'
 import { Selector } from './Selector'
 import { Modal } from './Modal'
+import { Popup } from './Popup'
 import { Loadmore } from './Loadmore'
 import $loading from './Loading'
 import $actionSheet from './ActionSheet'
@@ -29,6 +30,7 @@ const components = {
 	Datepicker,
 	Selector,
 	Modal,
+	Popup,
 	Loadmore,
 }
 
