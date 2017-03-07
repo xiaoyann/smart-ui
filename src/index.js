@@ -12,6 +12,7 @@ import { Selector } from './Selector'
 import { Modal } from './Modal'
 import { Popup } from './Popup'
 import { Loadmore } from './Loadmore'
+import { Spinner } from './Spinner'
 import $loading from './Loading'
 import $actionSheet from './ActionSheet'
 import $toast from './Toast'
@@ -32,6 +33,7 @@ const components = {
 	Modal,
 	Popup,
 	Loadmore,
+	Spinner
 }
 
 // register globally all components

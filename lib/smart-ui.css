@@ -430,6 +430,45 @@
   font-size: 13px;
   color: #858585;
 }
+.Spinner {
+  display: inline-block;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border-style: solid;
+  animation: spinner 0.9s linear infinite;
+}
+@-moz-keyframes spinner {
+from {
+    transform: rotate(0);
+}
+to {
+    transform: rotate(360deg);
+}
+}
+@-webkit-keyframes spinner {
+from {
+    transform: rotate(0);
+}
+to {
+    transform: rotate(360deg);
+}
+}
+@-o-keyframes spinner {
+from {
+    transform: rotate(0);
+}
+to {
+    transform: rotate(360deg);
+}
+}
+@keyframes spinner {
+from {
+    transform: rotate(0);
+}
+to {
+    transform: rotate(360deg);
+}
+}
 .Loading {
   position: fixed;
   top: 0;

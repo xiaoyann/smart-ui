@@ -10,6 +10,7 @@ import Selector from './demos/Selector'
 import Modal from './demos/Modal'
 import ActionSheet from './demos/ActionSheet'
 import Loading from './demos/Loading'
+import Spinner from './demos/Spinner'
 import Toast from './demos/Toast'
 import Dialog from './demos/Dialog'
 import Loadmore from './demos/Loadmore'
@@ -28,6 +29,7 @@ const views = {
 	Modal,
 	ActionSheet,
 	Loading,
+	Spinner,
 	Toast,
 	Dialog,
 	Loadmore,

@@ -12,6 +12,7 @@
 		<Cell title="Popup" to="/Popup"></Cell>
 		<Cell title="ActionSheet" to="/ActionSheet"></Cell>
 		<Cell title="Loading" to="/Loading"></Cell>
+		<Cell title="Spinner" to="/Spinner"></Cell>
 		<Cell title="Toast" to="/Toast"></Cell>
 		<Cell title="Dialog" to="/Dialog"></Cell>
 		<Cell title="Loadmore" to="/Loadmore"></Cell>
