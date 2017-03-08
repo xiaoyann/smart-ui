@@ -21,8 +21,9 @@
 
 .Loading--message {
 	margin: 0;
-	padding: 10px 0;
+	padding-top: 10px;
 	font-size: 12px;
+	line-height: 1;
 	color: #fff;
 }
 </style>
@@ -30,19 +31,25 @@
 <template>
 <div class="Loading" v-show="visible">
 	<div class="Loading--main">
-		<img width="50" src="./loading.svg">
+		<Spinner size="35" bgcolor="#f5f5f5" forecolor="transparent"/>
 		<p class="Loading--message" v-show="message">{{message}}</p>
 	</div>
 </div>
 </template>
 
 <script>
+import { Spinner } from '../Spinner'
+
 export default {
 	data() {
 		return {
 			message: '',
 			visible: false
 		}
+	},
+
+	components: { 
+		Spinner 
 	},
 
 	methods: {

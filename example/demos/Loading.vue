@@ -15,7 +15,7 @@ export default {
 		show(message) {
 			this.$loading.show(message)
 			setTimeout(() => {
-				this.$loading.hide()
+				// this.$loading.hide()
 			}, 2000)
 		}
 	}
