@@ -1,26 +1,25 @@
 <style lang="stylus">
 .Loadmore {
-	padding: 10px;
-}	
-
-.Loadmore--fetching {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 25px;
+	height: 24px;
 	text-align: center;
 	line-height: 1;
 	font-size: 13px;
 	color: #858585;
+	span {
+		margin-left: 5px;
+	}
 }
 </style>
 
 <template>
 <div class="Loadmore" v-show="visible">
-	<div class="Loadmore--fetching">
-		<img height="25" src="./loading-black.svg">
-		<span>{{desc}}</span>	
-	</div>
+	<slot>
+		<Spinner size="18" />
+		<span>{{ desc }}</span>	
+	</slot>
 </div>
 </template>
 
@@ -47,42 +46,53 @@ export default {
 	},
 
 	watch: {
-		allLoaded() {
-			this.visible = false
+		allLoaded(newVal) {
+			this.visible = !newVal
 		}
 	},
 
 	methods: {
 		onscroll() {
 			if (this.allLoaded) {
-				return
+				return this.stopListen()
 			}
 
 			let scrollTop = document.body.scrollTop
-			let clientHeight = document.documentElement.clientHeight
 			let scrollHeight = document.body.scrollHeight
+			let clientHeight = document.documentElement.clientHeight
 
 			if (this.visible) {
-				scrollHeight -= 45
+				scrollHeight -= 24
 			}
 
 			if (scrollTop + clientHeight >= scrollHeight) {
 				this.$emit('reachBottom')
 			}
+		},
+
+		startListen() {
+			let clientHeight = document.documentElement.clientHeight
+			let scrollHeight = document.body.scrollHeight
+			// 如果页面数据不够一屏，说明没有更多的数据需要加载，所以不需要监听 scroll
+			// 事件，不需要使用 Loadmore 
+			if (scrollHeight > clientHeight) {
+				this.visible = true
+				window.addEventListener('scroll', this.onscroll)
+			}
+		},
+
+		stopListen() {
+			window.removeEventListener('scroll', this.onscroll)
 		}
 	},
 
 	mounted() {
-		let clientHeight = document.documentElement.clientHeight
-		let scrollHeight = document.body.scrollHeight
-		if (scrollHeight > clientHeight) {
-			this.visible = true
-			window.addEventListener('scroll', this.onscroll)
-		}
+		this.startListen()
 	},
 
+	// 组件销毁时解除事件监听
 	destroyed() {
-		window.removeEventListener('scroll', this.onscroll)
+		this.stopListen()
 	}
 }
 </script>

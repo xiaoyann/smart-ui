@@ -1,7 +1,9 @@
 <template>
 <div>
 	<Cell :title="n + ''" v-for="n in total"></Cell>
-	<Loadmore @reachBottom="loadmore" :allLoaded="allLoaded" />
+	<div style="padding: 5px 0">
+		<Loadmore @reachBottom="loadmore" :allLoaded="allLoaded"></Loadmore>
+	</div>
 </div>
 </template>
 
