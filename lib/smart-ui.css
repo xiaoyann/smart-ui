@@ -418,17 +418,17 @@
   width: 100%;
 }
 .Loadmore {
-  padding: 10px;
-}
-.Loadmore--fetching {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 25px;
+  height: 24px;
   text-align: center;
   line-height: 1;
   font-size: 13px;
   color: #858585;
+}
+.Loadmore span {
+  margin-left: 5px;
 }
 .Spinner {
   display: inline-block;
@@ -489,8 +489,9 @@ to {
 }
 .Loading--message {
   margin: 0;
-  padding: 10px 0;
+  padding-top: 10px;
   font-size: 12px;
+  line-height: 1;
   color: #fff;
 }
 .ActionSheet {
