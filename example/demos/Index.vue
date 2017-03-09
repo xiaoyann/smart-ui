@@ -6,6 +6,7 @@
 		<Cell title="Radio" to="/Radio"></Cell>
 		<Cell title="Checkbox" to="/Checkbox"></Cell>
 		<Cell title="Field" to="/Field"></Cell>
+		<Cell title="Button" to="/Button"></Cell>
 		<Cell title="Datepicker" to="/Datepicker"></Cell>
 		<Cell title="Selector" to="/Selector"></Cell>
 		<Cell title="Modal" to="/Modal"></Cell>
