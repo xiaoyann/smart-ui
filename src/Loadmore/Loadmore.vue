@@ -4,6 +4,8 @@
 	align-items: center;
 	justify-content: center;
 	height: 24px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	text-align: center;
 	line-height: 1;
 	font-size: 13px;
@@ -62,7 +64,7 @@ export default {
 			let clientHeight = document.documentElement.clientHeight
 
 			if (this.visible) {
-				scrollHeight -= 24
+				scrollHeight -= 44
 			}
 
 			if (scrollTop + clientHeight >= scrollHeight) {
