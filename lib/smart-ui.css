@@ -422,6 +422,8 @@
   align-items: center;
   justify-content: center;
   height: 24px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   text-align: center;
   line-height: 1;
   font-size: 13px;
@@ -468,6 +470,46 @@ from {
 to {
     transform: rotate(360deg);
 }
+}
+.Button {
+  outline: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 6px 2px;
+  border: 0;
+  box-sizing: border-box;
+  line-height: 1;
+  font-family: sans-serif;
+  transition: all 0.15s linear;
+}
+.Button--default {
+  color: #666;
+  border: 1px solid #e5e5e5;
+  background-color: #f6f6f6;
+}
+.Button--default.disabled,
+.Button--default:active {
+  color: rgba(102,102,102,0.6);
+  background-color: rgba(246,246,246,0.8);
+}
+.Button--primary {
+  color: #fff;
+  background-color: #2b8ff7;
+}
+.Button--primary.disabled,
+.Button--primary:active {
+  color: rgba(255,255,255,0.6);
+  background-color: rgba(43,143,247,0.8);
+}
+.Button--caution {
+  color: #fff;
+  background-color: #ff4351;
+}
+.Button--caution.disabled,
+.Button--caution:active {
+  color: rgba(255,255,255,0.6);
+  background-color: rgba(255,67,81,0.8);
 }
 .Loading {
   position: fixed;
