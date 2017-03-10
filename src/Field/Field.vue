@@ -99,7 +99,7 @@ export default {
 
 	data() {
 		return {
-			val: ''
+			val: this.value
 		}
 	},
 

@@ -41,18 +41,23 @@
 <script>
 export default {
 	props: {
+		value: {},
 		placeholder: String
 	},
 
 	data() {
 		return {
-			val: ''
+			val: this.value
 		}
 	},
 
 	watch: {
 		val(newVal) {
 			this.$emit('input', newVal)
+		},
+
+		value(newVal) {
+			this.val = newVal
 		}
 	}
 }
