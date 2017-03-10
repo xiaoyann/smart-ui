@@ -16,7 +16,9 @@
 export default {
 	methods: {
 		open(position) {
-			this.$toast.show('哇哈哈哈哈，登录成功了~', position)
+			this.$toast.show('哇哈哈哈哈，登录成功了~', position, function() {
+				console.log(position)
+			})
 		}
 	}
 }

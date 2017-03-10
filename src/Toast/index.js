@@ -16,9 +16,5 @@ const toast = new Vue({
 export default {
 	show() {
 		toast.show.apply(toast, arguments)
-	},
-
-	hide() {
-		toast.hide.apply(toast, arguments)
 	}
 }

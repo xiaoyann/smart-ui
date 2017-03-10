@@ -58,20 +58,32 @@ export default {
 		return {
 			visible: false,
 			content: '',
-			time: 2000,
-			position: 'center'
+			position: 'center',
 		}
 	},
 
 	methods: {
-		show(content, position = 'center', time = 2000) {
+		show(content, position = 'center', time = 2000, callback) {
+			if (typeof position === 'function') {
+				callback = position
+				position = 'center'
+			}
+			
+			if (typeof time === 'function') {
+				callback = time
+				time = 2000
+			}
+
 			this.content = content
 			this.position = position
-			this.time = time
 			this.visible = true
+
 			setTimeout(() => {
 				this.hide()
-			}, this.time)
+				if (typeof callback === 'function') {
+					callback()
+				}
+			}, time)
 		},
 
 		hide() {
@@ -81,7 +93,6 @@ export default {
 		afterLeave() {
 			this.content = ''
 			this.position = 'center'
-			this.time = 2000
 		}
 	}
 }
