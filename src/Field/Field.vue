@@ -104,8 +104,12 @@ export default {
 	},
 
 	watch: {
-		val(newVal, oldVal) {
+		val(newVal) {
 			this.$emit('input', newVal)
+		},
+
+		value(newVal) {
+			this.val = newVal
 		}
 	},
 
@@ -113,6 +117,7 @@ export default {
 		handleInput(e) {
 			this.val = e.target.value
 		},
+		
 		clear() {
 			this.val = ''
 		}
