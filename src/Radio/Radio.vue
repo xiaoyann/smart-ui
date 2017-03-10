@@ -28,12 +28,14 @@ export default {
 		'title',
 	],
 
-	mounted() {
-		this.watchChildren()
-		this.checkStatus(this.value)
+	watch: {
+		value(newVal) {
+			this.checkStatus(newVal)
+		}
 	},
 
-	updated() {
+	mounted() {
+		this.watchChildren()
 		this.checkStatus(this.value)
 	},
 
