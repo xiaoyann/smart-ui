@@ -51,7 +51,10 @@
 <script>
 export default {
 	props: {
-		value: {}
+		value: {},
+		placeholder: {
+			type: String,
+		}
 	},
 
 	data() {
@@ -62,14 +65,20 @@ export default {
 	},
 
 	watch: {
-		selectedIndex() {
-			const option = this.options[this.selectedIndex] || {}
-			this.$emit('input', option.value)
+		selectedIndex(newIndex) {
+			const option = this.options[newIndex]
+			if (option) {
+				this.$refs.selector.selectedIndex = newIndex
+				this.$emit('input', option.value)
+			}
+		},
+		
+		value() {
+			this.checkStatus()
 		}
 	},
 
 	mounted() {
-		let selectedIndex = 0
 		const options = this.$refs.selector.options
 
 		;[].forEach.call(options, option => {
@@ -77,20 +86,33 @@ export default {
 				text: option.innerHTML,
 				value: option.value,
 			})
-			if (option.hasAttribute('selected')) {
-				selectedIndex = option.index
-			}
 		})
-		this.selectedIndex = selectedIndex
+
+		this.checkStatus()
 	},
 
 	methods: {
+		checkStatus() {
+			let selectedIndex = this.selectedIndex
+			this.options.forEach((option, index) => {
+				if (option.value === this.value + '') {
+					selectedIndex = index
+				}
+			})
+			this.selectedIndex = selectedIndex
+		},
+
 		handleChange(e) {
 			this.selectedIndex = e.target.selectedIndex
 		},
+
 		getText() {
-			const option = this.options[this.selectedIndex] || {}
-			return option.text
+			if (this.selectedIndex > -1) {
+				const option = this.options[this.selectedIndex] || {}
+				return option.text
+			} else {
+				return this.placeholder
+			}
 		}
 	}
 }
