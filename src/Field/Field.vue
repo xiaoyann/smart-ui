@@ -62,7 +62,7 @@
 
 <template>
 <Cell>
-	<div class="Field--label" slot="header">
+	<div v-if="label" class="Field--label" slot="header">
 		{{label}}
 	</div>
 	<div class="Field--bd" slot="body">
