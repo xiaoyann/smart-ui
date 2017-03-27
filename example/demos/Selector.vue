@@ -18,7 +18,7 @@
 export default {
 	data() {
 		return {
-			city: 2
+			city: ""
 		}
 	}
 }

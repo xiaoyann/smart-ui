@@ -1,6 +1,6 @@
 {
   "name": "smart-ui",
-  "version": "1.4.10",
+  "version": "1.4.11",
   "description": "Mobile UI Components by Vue.js",
   "main": "lib/smart-ui.js",
   "scripts": {

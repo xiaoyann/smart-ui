@@ -80,6 +80,7 @@ export default {
 
 	mounted() {
 		const options = this.$refs.selector.options
+		this.selectedIndex = this.$refs.selector.selectedIndex
 
 		;[].forEach.call(options, option => {
 			this.options.push({
