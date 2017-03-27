@@ -86,8 +86,8 @@ export default {
 	name: 'Cell',
 
 	props: {
-		title: String,
-		content: String,
+		title: undefined,
+		content: undefined,
 		// whether display arrow icon
 		arrow: undefined,
 		// navigate to another URL by Router
