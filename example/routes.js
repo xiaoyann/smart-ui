@@ -16,6 +16,7 @@ import Dialog from './demos/Dialog'
 import Loadmore from './demos/Loadmore'
 import Popup from './demos/Popup'
 import Button from './demos/Button'
+import Switcher from './demos/Switcher'
 
 const views = {
 	About,
@@ -35,7 +36,8 @@ const views = {
 	Dialog,
 	Loadmore,
 	Popup,
-	Button
+	Button,
+	Switcher
 }
 
 const routes = Object.keys(views).map(

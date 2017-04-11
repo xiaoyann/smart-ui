@@ -14,6 +14,7 @@ import { Popup } from './Popup'
 import { Loadmore } from './Loadmore'
 import { Spinner } from './Spinner'
 import { Button } from './Button'
+import { Switcher } from './Switcher'
 import $loading from './Loading'
 import $actionSheet from './ActionSheet'
 import $toast from './Toast'
@@ -35,7 +36,8 @@ const components = {
 	Popup,
 	Loadmore,
 	Spinner,
-	Button
+	Button,
+	Switcher
 }
 
 // register globally all components
