@@ -1,6 +1,9 @@
 <style lang="stylus">
 .CellBox {
 	background-color: #fff;
+}
+
+.Cell--active {
 	&:active {
 		background-color: #f5f5f5;
 	}
@@ -63,7 +66,7 @@
 </style>
 
 <template>
-<div class="CellBox" @click="handleClick">
+<div class="CellBox" @click="handleClick" :class="{'Cell--active': active !== undefined}">
 	<div class="Cell smart-border-top">
 		<div class="Cell--icon" v-if="hasIcon">
 			<slot name="icon"></slot>
@@ -92,6 +95,8 @@ export default {
 		arrow: undefined,
 		// navigate to another URL by Router
 		to: String,
+		// active style
+		active: undefined
 	},
 
 	computed: {
