@@ -21,7 +21,7 @@
 }
 
 .Switcher--text {
-  display: inline-block;
+  float: left;
   width: 50%;
   text-align: center;
   line-height: 30px;
