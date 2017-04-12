@@ -531,7 +531,7 @@ to {
   transition: all 0.2s linear;
 }
 .Switcher--text {
-  display: inline-block;
+  float: left;
   width: 50%;
   text-align: center;
   line-height: 30px;
