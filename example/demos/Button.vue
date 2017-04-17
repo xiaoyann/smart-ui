@@ -1,9 +1,19 @@
-<style>
+<style lang="stylus">
 .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+}
+
+.Button--cutout {
+  color: #dc4f45;
+  border: 1px solid #dc4f45;
+  background-color: #fff;
+  &.disabled,
+  &:active {
+    color: rgba(220, 79, 69, .6);
+  }
 }
 </style>
 
@@ -42,6 +52,18 @@
     </Button>
     <Button theme="caution" disabled>
       警告
+    </Button>
+  </div>  
+
+  <div class="row">
+    <Button width="40%" height="40px" font-size="20px" theme="cutout" :loading="loading" @click="handleClick">
+      登录
+    </Button>  
+    <Button theme="cutout">
+      登录
+    </Button>
+    <Button theme="cutout" disabled>
+      登录
     </Button>
   </div>  
 </div>

@@ -13,7 +13,7 @@ import { Modal } from './Modal'
 import { Popup } from './Popup'
 import { Loadmore } from './Loadmore'
 import { Spinner } from './Spinner'
-import { Button } from './Button'
+import Button from './Button'
 import { Switcher } from './Switcher'
 import $loading from './Loading'
 import $actionSheet from './ActionSheet'
@@ -43,7 +43,8 @@ const components = {
 // register globally all components
 function install(Vue, options) {
 	for (let name in components) {
-		Vue.component(name, components[name])
+		let component = components[name].component || components[name]
+		Vue.component(name, component)
 	}
 	Vue.prototype.$actionSheet = $actionSheet
 	Vue.prototype.$loading = $loading
@@ -51,4 +52,15 @@ function install(Vue, options) {
 	Vue.prototype.$dialog = $dialog
 }
 
-module.exports = { install }
+// Components can export a function named config to 
+// customize some options for user
+function config(name) {
+	const args = [].slice.call(arguments, 1)
+	if (typeof components[name].config === 'function') {
+		components[name].config.apply(null, args)
+	} else {
+		console.warn(`${name}.config is not a function`)
+	}
+}
+
+module.exports = { install, config }
