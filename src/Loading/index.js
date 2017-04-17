@@ -20,5 +20,10 @@ export default {
 
 	hide() {
 		loading.hide()
-	}
+	},
+
+	zIndex(zIndex) {
+    loading.zIndex = zIndex
+    return loading
+  }
 }

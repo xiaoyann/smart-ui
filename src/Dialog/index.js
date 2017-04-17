@@ -24,5 +24,10 @@ export default {
 
 	prompt() {
 		instance.prompt.apply(instance, arguments)
+	},
+
+	zIndex(zIndex) {
+		instance.zIndex = zIndex
+		return instance
 	}
 }

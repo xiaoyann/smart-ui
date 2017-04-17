@@ -29,7 +29,7 @@
 </style>
 
 <template>
-<div class="Loading" v-show="visible">
+<div class="Loading" v-show="visible" :style="{zIndex: zIndex}">
 	<div class="Loading--main">
 		<Spinner size="35" bgcolor="#f5f5f5" forecolor="transparent"/>
 		<p class="Loading--message" v-show="message">{{message}}</p>
@@ -44,7 +44,8 @@ export default {
 	data() {
 		return {
 			message: '',
-			visible: false
+			visible: false,
+			zIndex: 7
 		}
 	},
 
@@ -61,6 +62,7 @@ export default {
 		hide() {
 			this.message = ''
 			this.visible = false
+			this.zIndex = 4
 		}
 	}
 }

@@ -37,7 +37,7 @@
 	name="smart-anim--fade"
 	@after-leave="afterLeave"
 >
-	<div class="Toast" v-show="visible">
+	<div class="Toast" v-show="visible" :style="{zIndex: zIndex}">
 		<div 
 			class="Toast--main" 
 			:class="{
@@ -59,6 +59,7 @@ export default {
 			visible: false,
 			content: '',
 			position: 'center',
+			zIndex: 7
 		}
 	},
 
@@ -93,6 +94,7 @@ export default {
 		afterLeave() {
 			this.content = ''
 			this.position = 'center'
+			this.zIndex = 4
 		}
 	}
 }

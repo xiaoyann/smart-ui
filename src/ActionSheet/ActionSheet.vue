@@ -83,7 +83,7 @@ export default {
 			// 按钮颜色
 			tintColor: '#2b8ff7',
 			// css z-index
-			zIndex: 2
+			zIndex: 5
 		}
 	},
 

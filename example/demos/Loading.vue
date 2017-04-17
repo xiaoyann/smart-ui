@@ -13,7 +13,7 @@
 export default {
 	methods: {
 		show(message) {
-			this.$loading.show(message)
+			this.$loading.zIndex(8).show(message)
 			setTimeout(() => {
 				// this.$loading.hide()
 			}, 2000)

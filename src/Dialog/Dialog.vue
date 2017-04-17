@@ -86,7 +86,7 @@
 </style>
 
 <template>
-<Modal v-model="visible" anim="fade" bgcolor="rgba(0,0,0,.4)">
+<Modal v-model="visible" anim="fade" bgcolor="rgba(0,0,0,.4)" :zIndex="zIndex">
 	<div class="Dialog">
 		<transition name="smart-anim--scale" @after-leave="afterLeave">
 			<div v-show="visible" class="Dialog--main" :style="{'width': width}">
@@ -166,7 +166,8 @@ export default {
 			content: '',
 			buttons: [],
 			isPrompt: false,
-			promptVal: ''
+			promptVal: '',
+			zIndex: 6
 		}
 	},
 
@@ -254,6 +255,7 @@ export default {
 			this.buttons = []
 			this.promptVal = ''
 			this.isPrompt = false
+			this.zIndex = 6
 		}
 	}
 }
