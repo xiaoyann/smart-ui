@@ -5,7 +5,7 @@
   "main": "lib/smart-ui.js",
   "scripts": {
     "test": "",
-    "docs": "node example/build.js",
+    "docs": "rm -rf docs && node example/build.js",
     "dev": "node example/server.js",
     "build": "NODE_ENV=production node ./webpack.config.js",
     "prepublish": "npm run build"
