@@ -67,7 +67,7 @@ var config = {
 
   plugins: [
   	new webpack.DefinePlugin({
-      'process.env': '"production"'
+      'process.env.NODE_ENV': '"production"'
     }),
 
     // uglify js
