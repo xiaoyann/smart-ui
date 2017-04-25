@@ -1,5 +1,6 @@
 var webpack = require('webpack')
 var WebpackDevServer = require('webpack-dev-server')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 var port = 8080
 var localServer = `http://localhost:${port}`
 
@@ -50,6 +51,10 @@ var config = {
   },
 
   plugins: [
+  // https://github.com/ampedandwired/html-webpack-plugin
+    new HtmlWebpackPlugin({
+      template: './index.html'
+    }),
   	new webpack.HotModuleReplacementPlugin(),
   ],
 
