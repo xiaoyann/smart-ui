@@ -79,20 +79,23 @@ export default {
 	},
 
 	mounted() {
-		const options = this.$refs.selector.options
-		this.selectedIndex = this.$refs.selector.selectedIndex
-
-		;[].forEach.call(options, option => {
-			this.options.push({
-				text: option.innerHTML,
-				value: option.value,
-			})
-		})
-
-		this.checkStatus()
+		console.log(this)
+		this.pickOptions()
 	},
 
 	methods: {
+		pickOptions() {
+			const options = this.$refs.selector.options
+			this.selectedIndex = this.$refs.selector.selectedIndex
+			;[].forEach.call(options, option => {
+				this.options.push({
+					text: option.innerHTML,
+					value: option.value,
+				})
+			})
+			this.checkStatus()
+		},
+
 		checkStatus() {
 			let selectedIndex = this.selectedIndex
 			this.options.forEach((option, index) => {
@@ -104,6 +107,9 @@ export default {
 		},
 
 		handleChange(e) {
+			if (this.options.length === 0) {
+				this.pickOptions()
+			}
 			this.selectedIndex = e.target.selectedIndex
 		},
 
