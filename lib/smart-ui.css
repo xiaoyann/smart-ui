@@ -31,6 +31,14 @@
 .smart-anim--fade-leave-active {
   opacity: 0;
 }
+.smart-anim--topDown-enter-active,
+.smart-anim--topDown-leave-active {
+  transition: transform 0.3s;
+}
+.smart-anim--topDown-enter,
+.smart-anim--topDown-leave-active {
+  transform: translateY(-100%);
+}
 .smart-anim--bottomUp-enter-active,
 .smart-anim--bottomUp-leave-active {
   transition: transform 0.3s;
@@ -413,7 +421,6 @@
 .Popup {
   position: absolute;
   right: 0;
-  bottom: 0;
   left: 0;
   width: 100%;
 }
