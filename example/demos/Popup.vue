@@ -2,10 +2,18 @@
 <div>
   <ul>
     <li>
-      <a href="javascript:;" @click="visible = true">Show</a>
+      <a href="javascript:;" @click="visible1 = true">display from the bottom</a>
+    </li>
+    <li>
+      <a href="javascript:;" @click="visible2 = true">display from the top</a>
     </li>
   </ul>
-  <Popup v-model="visible">
+  <Popup v-model="visible1">
+    <div style="background-color: #fff; height: 200px; line-height: 200px; text-align: center;">
+      <span>Popup</span>
+    </div>  
+  </Popup>
+  <Popup v-model="visible2" position="top">
     <div style="background-color: #fff; height: 200px; line-height: 200px; text-align: center;">
       <span>Popup</span>
     </div>  
@@ -17,14 +25,9 @@
 export default {
   data() {
     return {
-      visible: false
+      visible1: false,
+      visible2: false
     }
   },
-
-  watch: {
-    visible(newVal) {
-      console.log('visible = ', newVal)
-    }
-  }
 }
 </script>
