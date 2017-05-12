@@ -1,6 +1,6 @@
 <template>
 <div>
-	<Cell :title="n + ''" v-for="n in total"></Cell>
+	<Cell :title="n + ''" v-for="n in total" :key="n"></Cell>
 	<div style="padding: 5px 0">
 		<Loadmore @reachBottom="loadmore" :allLoaded="allLoaded"></Loadmore>
 	</div>

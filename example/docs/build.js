@@ -1,3 +1,4 @@
+process.env.NODE_ENV = 'production'
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -20,16 +21,23 @@ var config = {
   },
 
   output: {
-    filename: 'js/[name].[chunkhash].js',
-    path: path.resolve(__dirname, '../docs')
+    filename: 'docs/js/[name].[chunkhash].js',
+    path: path.resolve(__dirname, '../../docs')
   },
 
   resolve: {
     extensions: ['.js', '.vue'],
+    alias: {
+      images: __dirname + '/images'
+    }
   },
 
   module: {
     rules: [
+      {
+        test: /\.md/,
+        loader: 'vue-markdown-loader'
+      },
       {
         test: /.js$/,
         exclude: /node_modules/,
@@ -37,11 +45,7 @@ var config = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader'
-      },
-      {
-        test: /\.css$/,
-        loaders: ['style-loader', 'css-loader'] 
+        loader: 'url-loader?limit=1000000000'
       },
       {
         test: /\.vue$/,
@@ -49,7 +53,7 @@ var config = {
         options: {
           loaders: {
             stylus: ExtractTextPlugin.extract({
-              loader: 'css-loader?minimize!stylus-loader?sourceMap'
+              use: 'css-loader?minimize!stylus-loader?sourceMap'
             })
           }
         }
@@ -67,7 +71,9 @@ var config = {
 
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
     }),
 
     // uglify js
@@ -75,8 +81,7 @@ var config = {
       compress: {
         warnings: false
       },
-      sourceMap: true,
-      minimize: true
+      sourceMap: true
     }),
 
     new webpack.optimize.CommonsChunkPlugin({
@@ -89,12 +94,8 @@ var config = {
     }),
 
     // extract css into its own file
-    new ExtractTextPlugin('css/[name].[contenthash].css'),
+    new ExtractTextPlugin('docs/css/[name].[contenthash].css'),
   ],
-
-  performance: {
-    hints: process.env.NODE_ENV === 'production'
-  },
 }
 
 webpack(config, function(err, stats) {
