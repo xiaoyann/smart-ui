@@ -1,3 +1,4 @@
+process.env.NODE_ENV = 'production'
 var path = require('path')
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -49,7 +50,7 @@ var config = {
 	      options: {
           loaders: {
             stylus: ExtractTextPlugin.extract({
-              loader: 'css-loader!stylus-loader?sourceMap'
+              use: 'css-loader!stylus-loader?sourceMap'
             })
           }
         }
@@ -82,10 +83,6 @@ var config = {
     // extract css into its own file
     new ExtractTextPlugin('smart-ui.css'),
   ],
-
-  performance: {
-    hints: process.env.NODE_ENV === 'production' ? 'warning' : false
-  },
 }
 
 webpack(config, function(err, stats) {
