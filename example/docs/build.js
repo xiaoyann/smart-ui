@@ -9,13 +9,13 @@ var config = {
   context: __dirname,
 
   devtool: 'source-map',
-  
+
   entry: {
     app: [
       './main.js'
     ],
     vendor: [
-      'vue', 
+      'vue',
       'vue-router'
     ]
   },
@@ -34,6 +34,10 @@ var config = {
 
   module: {
     rules: [
+      {
+        test: /.tpl$/,
+        loader: 'vue-template-loader'
+      },
       {
         test: /\.md/,
         loader: 'vue-markdown-loader'
