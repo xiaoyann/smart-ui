@@ -1,4 +1,4 @@
-import Installation from './pages/Installation.md'
+import Installation from './pages/installation'
 import TabBar from './pages/TabBar.md'
 // import Demos from './demos/Index'
 // import Cell from './demos/Cell'
@@ -42,7 +42,7 @@ const views = {
 }
 
 const routes = Object.keys(views).map(
-  name => ({ 
+  name => ({
     path: `/${name}`,
     component: views[name]
   })
@@ -50,7 +50,7 @@ const routes = Object.keys(views).map(
 
 routes.push({
   path: '/',
-  redirect: '/Installation'
+  redirect: '/installation'
 })
 
 routes.push({

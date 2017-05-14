@@ -62,16 +62,11 @@ var config = {
   },
 
   plugins: [
-  // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       template: './index.html'
     }),
   	new webpack.HotModuleReplacementPlugin(),
-  ],
-
-  performance: {
-    hints: process.env.NODE_ENV === 'production'
-  },
+  ]
 }
 
 var compiler = webpack(config)
@@ -79,7 +74,7 @@ var compiler = webpack(config)
 new WebpackDevServer(compiler, {
 	contentBase: __dirname,
 	stats: { colors: true, chunks: false },
-	hot: true
+	hot: false
 })
 .listen(port, function() {
 	console.log('\n ==> '+ localServer +' \n')
