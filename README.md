@@ -26,9 +26,13 @@ then apply to vue.js and import `smart-ui.css`
 import Vue from 'vue'
 import SmartUI from 'smart-ui'
 import 'smart-ui/lib/smart-ui.css'
-
+// apply to vue.js
 Vue.use(SmartUI)
 ```
+
+Most of components can be used like this:
+
+![example](./docs/images/usage.png)
 
 
 
