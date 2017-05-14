@@ -9,20 +9,20 @@ var config = {
   context: __dirname,
 
   devtool: 'source-map',
-  
+
   entry: {
     app: [
       './main.js'
     ],
     vendor: [
-      'vue', 
+      'vue',
       'vue-router'
     ]
   },
 
   output: {
-    filename: 'demo/js/[name].[chunkhash].js',
-    path: path.resolve(__dirname, '../../docs')
+    filename: 'js/[name].[chunkhash].js',
+    path: path.resolve(__dirname, '../../docs/demo')
   },
 
   resolve: {
@@ -82,12 +82,11 @@ var config = {
 
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      template: './index.html',
-      filename: 'demo.html'
+      template: './index.html'
     }),
 
     // extract css into its own file
-    new ExtractTextPlugin('demo/css/[name].[contenthash].css'),
+    new ExtractTextPlugin('css/[name].[contenthash].css'),
   ]
 }
 

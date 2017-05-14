@@ -21,8 +21,8 @@ var config = {
   },
 
   output: {
-    filename: 'docs/js/[name].[chunkhash].js',
-    path: path.resolve(__dirname, '../../docs')
+    filename: 'js/[name].[chunkhash].js',
+    path: path.resolve(__dirname, '../../docs/docs')
   },
 
   resolve: {
@@ -98,7 +98,7 @@ var config = {
     }),
 
     // extract css into its own file
-    new ExtractTextPlugin('docs/css/[name].[contenthash].css'),
+    new ExtractTextPlugin('css/[name].[contenthash].css'),
   ],
 }
 
