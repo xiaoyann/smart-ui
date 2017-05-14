@@ -1,1 +1,2 @@
-<pre><code ref="code"><slot></slot></code></pre>
+<pre><code v-html="content"></code></pre>
+

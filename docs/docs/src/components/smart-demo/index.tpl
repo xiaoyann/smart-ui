@@ -15,9 +15,13 @@
       </div>
     </div>
     <div class="smartDemo--tabMain" ref="tabMain">
-      <slot name="html"></slot>
-      <slot name="js"></slot>
-      <slot name="css"></slot>
+      <smart-code
+        v-for="(lang, k) in languages"
+        :key="k"
+        :lang="lang"
+        :code="source[lang]"
+      >
+      </smart-code>
     </div>
   </div>
 </div>

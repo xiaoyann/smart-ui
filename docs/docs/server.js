@@ -27,8 +27,19 @@ var config = {
   module: {
   	rules: [
       {
+        test: /.txt$/,
+        loader: 'raw-loader'
+      },
+      {
         test: /.tpl$/,
-        loader: 'vue-template-loader'
+        loader: 'vue-template-loader',
+        options: {
+          transformToRequire: {
+            // The key should be element name,
+            // the value should be attribute name or its array
+            img: 'src'
+          }
+        }
       },
   		{
   			test: /.js$/,
@@ -41,7 +52,7 @@ var config = {
 	    },
 	    {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader'
+        loader: 'file-loader?name=images/[hash].[ext]'
       },
       {
 	    	test: /\.css$/,

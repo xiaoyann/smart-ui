@@ -32,6 +32,10 @@ var config = {
   module: {
     rules: [
       {
+        test: /.txt$/,
+        loader: 'raw-loader'
+      },
+      {
         test: /.tpl$/,
         loader: 'vue-template-loader'
       },

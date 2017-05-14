@@ -2,6 +2,17 @@ import create from './index.tpl'
 import './index.styl'
 
 export default create({
+  props: {
+    source: {
+      type: Object,
+      default: () => ({
+        html: '',
+        javascript: '',
+        css: ''
+      })
+    }
+  },
+
   data() {
     return {
       languages: [
@@ -16,7 +27,7 @@ export default create({
   watch: {
     index() {
       this.toogle()
-    }
+    },
   },
 
   mounted() {
@@ -30,7 +41,9 @@ export default create({
       ;[].forEach.call(nodes, (node) => {
         if (node.nodeType === 1) {
           let offsetHeight = node.offsetHeight
-          maxHeight = offsetHeight
+          if (offsetHeight > maxHeight) {
+            maxHeight = offsetHeight
+          }
         }
       })
       this.$refs.tabMain.style.height = maxHeight + 'px'

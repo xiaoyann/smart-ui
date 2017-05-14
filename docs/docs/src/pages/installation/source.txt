@@ -1,0 +1,10 @@
+<Cell title="显示图标">
+  <img slot="icon" src="../../images/food.svg"/>
+</Cell>
+<Cell title="显示箭头" arrow content="使用 arrow 属性">
+  <img slot="icon" src="../../images/food.svg"/>
+</Cell>
+<Cell title="回首页" to="/" content="使用了to，默认就会显示箭头"></Cell>
+<Cell title="打开百度" to="http://www.baidu.com" content="支持打开外部链接">
+  <img slot="icon" src="../../images/baidu.svg"/>
+</Cell>
