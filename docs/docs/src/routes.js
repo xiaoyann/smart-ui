@@ -1,5 +1,5 @@
-import Installation from './pages/installation'
-import TabBar from './pages/TabBar.md'
+import installation from './pages/installation'
+// import TabBar from './pages/TabBar.md'
 // import Demos from './demos/Index'
 // import Cell from './demos/Cell'
 // import Radio from './demos/Radio'
@@ -19,8 +19,8 @@ import TabBar from './pages/TabBar.md'
 // import Switcher from './demos/Switcher'
 
 const views = {
-  Installation,
-  TabBar,
+  installation,
+  // TabBar,
   // Demos,
   // Cell,
   // Radio,
@@ -53,14 +53,14 @@ routes.push({
   redirect: '/installation'
 })
 
-routes.push({
-  path: '/TabBar/index',
-  component: TabBar
-})
+// routes.push({
+//   path: '/TabBar/index',
+//   component: TabBar
+// })
 
-routes.push({
-  path: '/TabBar/about',
-  component: TabBar
-})
+// routes.push({
+//   path: '/TabBar/about',
+//   component: TabBar
+// })
 
 export default routes

@@ -12,7 +12,7 @@ var config = {
 		app: [
 			'webpack-dev-server/client?' + localServer,
 			'webpack/hot/only-dev-server',
-			'./main.js'
+			'./src/main.js'
 		],
 		vendor: [
 			'vue',
@@ -21,10 +21,7 @@ var config = {
 	},
 
 	resolve: {
-  	extensions: ['.js', '.vue'],
-    alias: {
-      images: __dirname + '/images'
-    }
+  	extensions: ['.js', '.vue']
   },
 
   module: {
@@ -32,10 +29,6 @@ var config = {
       {
         test: /.tpl$/,
         loader: 'vue-template-loader'
-      },
-      {
-        test: /\.md/,
-        loader: 'vue-markdown-loader'
       },
   		{
   			test: /.js$/,
@@ -63,7 +56,7 @@ var config = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './src/index.html'
     }),
   	new webpack.HotModuleReplacementPlugin(),
   ]

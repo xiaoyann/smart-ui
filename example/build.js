@@ -22,26 +22,15 @@ var config = {
 
   output: {
     filename: 'js/[name].[chunkhash].js',
-    path: path.resolve(__dirname, '../../docs/docs')
+    path: path.resolve(__dirname, '../docs/demo')
   },
 
   resolve: {
     extensions: ['.js', '.vue'],
-    alias: {
-      images: __dirname + '/images'
-    }
   },
 
   module: {
     rules: [
-      {
-        test: /.tpl$/,
-        loader: 'vue-template-loader'
-      },
-      {
-        test: /\.md/,
-        loader: 'vue-markdown-loader'
-      },
       {
         test: /.js$/,
         exclude: /node_modules/,
@@ -49,7 +38,7 @@ var config = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader?limit=1000000000'
+        loader: 'url-loader'
       },
       {
         test: /\.vue$/,
@@ -75,9 +64,7 @@ var config = {
 
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
+      'process.env.NODE_ENV': '"production"'
     }),
 
     // uglify js
@@ -85,7 +72,8 @@ var config = {
       compress: {
         warnings: false
       },
-      sourceMap: true
+      sourceMap: true,
+      minimize: true
     }),
 
     new webpack.optimize.CommonsChunkPlugin({
@@ -99,7 +87,7 @@ var config = {
 
     // extract css into its own file
     new ExtractTextPlugin('css/[name].[contenthash].css'),
-  ],
+  ]
 }
 
 webpack(config, function(err, stats) {

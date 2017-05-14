@@ -7,7 +7,7 @@ var localServer = `http://localhost:${port}`
 var config = {
 
 	context: __dirname,
-	
+
 	entry: {
 		app: [
 			'webpack-dev-server/client?' + localServer,
@@ -15,7 +15,7 @@ var config = {
 			'./main.js'
 		],
 		vendor: [
-			'vue', 
+			'vue',
 			'vue-router'
 		]
 	},
@@ -41,11 +41,11 @@ var config = {
       },
       {
 	    	test: /\.css$/,
-	    	loaders: ['style-loader', 'css-loader'] 
+	    	loaders: ['style-loader', 'css-loader']
 	    },
       {
 	    	test: /\.(styl)$/,
-	    	loaders: ['style-loader', 'css-loader', 'stylus-loader'] 
+	    	loaders: ['style-loader', 'css-loader', 'stylus-loader']
 	    }
   	]
   },

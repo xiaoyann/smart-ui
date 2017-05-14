@@ -12,7 +12,7 @@ var config = {
 
   entry: {
     app: [
-      './main.js'
+      './src/main.js'
     ],
     vendor: [
       'vue',
@@ -21,8 +21,8 @@ var config = {
   },
 
   output: {
-    filename: 'js/[name].[chunkhash].js',
-    path: path.resolve(__dirname, '../../docs/demo')
+    filename: 'dist/js/[name].[chunkhash].js',
+    path: __dirname
   },
 
   resolve: {
@@ -32,13 +32,17 @@ var config = {
   module: {
     rules: [
       {
+        test: /.tpl$/,
+        loader: 'vue-template-loader'
+      },
+      {
         test: /.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader'
+        loader: 'url-loader?limit=1000000000'
       },
       {
         test: /\.vue$/,
@@ -64,7 +68,9 @@ var config = {
 
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
     }),
 
     // uglify js
@@ -72,8 +78,7 @@ var config = {
       compress: {
         warnings: false
       },
-      sourceMap: true,
-      minimize: true
+      sourceMap: true
     }),
 
     new webpack.optimize.CommonsChunkPlugin({
@@ -82,12 +87,12 @@ var config = {
 
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './src/index.html'
     }),
 
     // extract css into its own file
-    new ExtractTextPlugin('css/[name].[contenthash].css'),
-  ]
+    new ExtractTextPlugin('dist/css/[name].[contenthash].css'),
+  ],
 }
 
 webpack(config, function(err, stats) {
