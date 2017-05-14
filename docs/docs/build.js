@@ -53,7 +53,7 @@ var config = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader?limit=1000000000'
+        loader: 'file-loader?name=images/[hash].[ext]'
       },
       {
         test: /\.vue$/,
