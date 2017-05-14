@@ -6,7 +6,7 @@ import SmartUI from '../../src'
 import '../../src/style.styl'
 import './style.styl'
 import routes from './routes'
-import App from './App'
+import App from './pages/app'
 import ExampleBox from './components/ExampleBox'
 
 Vue.use(Router)
