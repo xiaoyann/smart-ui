@@ -19,7 +19,7 @@
 	padding-left: 10px;
 	padding-right: 10px;
 	box-sizing: border-box;
-}	
+}
 
 .Cell--bd {
 	padding-left: 5px;
@@ -55,13 +55,16 @@
 }
 
 .Cell--arrow {
-	display: block;
-	width: 16px;
-	height: 20px;
-	background-image: url(./enter.svg);
-	background-position: 4px center;
-	background-repeat: no-repeat;
-	background-size: 16px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-top-color: #ccc;
+  border-right-color: #ccc;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  transform: rotate(45deg);
 }
 </style>
 
@@ -74,13 +77,13 @@
 		<slot name="header">
 			<div class="Cell--hd" v-if="title">
 				<span class="Cell--title">{{title}}</span>
-			</div>	
+			</div>
 		</slot>
 		<slot name="body">
 			<div class="Cell--bd">{{content}}</div>
 		</slot>
 		<i v-if="hasArrow" class="Cell--arrow"></i>
-	</div>	
+	</div>
 </div>
 </template>
 
