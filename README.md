@@ -1,6 +1,6 @@
 # Smart-UI
 
-Mobile UI Components by Vue.js 2.
+High Quality Mobile UI Componets by Vue.js 2.
 
 * [Documentation](https://xiaoyann.github.io/smart-ui/docs)
 * [Complete Example](https://xiaoyann.github.io/smart-ui/demo)
