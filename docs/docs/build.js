@@ -3,12 +3,12 @@ var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var InlineManifestPlugin = require('inline-manifest-webpack-plugin')
+var WebpackChunkHash = require("webpack-chunk-hash");
 
 var config = {
 
   context: __dirname,
-
-  devtool: 'source-map',
 
   entry: {
     app: [
@@ -16,7 +16,8 @@ var config = {
     ],
     vendor: [
       'vue',
-      'vue-router'
+      'vue-router',
+      './src/libs/prismjs/index.js',
     ]
   },
 
@@ -61,18 +62,18 @@ var config = {
         options: {
           loaders: {
             stylus: ExtractTextPlugin.extract({
-              use: 'css-loader?minimize!stylus-loader?sourceMap'
+              use: 'css-loader?minimize!stylus-loader'
             })
           }
         }
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('css-loader?minimize&sourceMap')
+        loader: ExtractTextPlugin.extract('css-loader?minimize')
       },
       {
         test: /\.(styl)$/,
-        loader: ExtractTextPlugin.extract(['css-loader?minimize&sourceMap', 'stylus-loader'])
+        loader: ExtractTextPlugin.extract(['css-loader?minimize', 'stylus-loader'])
       }
     ]
   },
@@ -89,11 +90,19 @@ var config = {
       compress: {
         warnings: false
       },
-      sourceMap: true
+      sourceMap: false
     }),
 
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor']
+      names: ['vendor', 'manifest'],
+      minChunks: Infinity
+    }),
+
+    new webpack.HashedModuleIdsPlugin(),
+    new WebpackChunkHash(),
+
+    new InlineManifestPlugin({
+      name: 'webpackManifest'
     }),
 
     // https://github.com/ampedandwired/html-webpack-plugin
