@@ -20,7 +20,7 @@ export default create({
 
   created() {
     const lang = this.lang
-    let code = this.code
+    let code = this.code.trim()
     if (!code && this.$slots.default) {
       code = this.$slots.default[0].text.trim()
     }

@@ -1,0 +1,7 @@
+.tabBar--demo2--wrapper {
+  position: relative;
+  height: 100px;
+  padding-bottom: 58px;
+  overflow: hidden;
+  user-select: none;
+}

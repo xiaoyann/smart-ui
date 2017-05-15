@@ -9,7 +9,7 @@ const components = [
   'Popup',
   'ActionSheet',
   'Loading',
-  'Spinnder',
+  'Spinner',
   'Toast',
   'Dialog',
   'Loadmore',

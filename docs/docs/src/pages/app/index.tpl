@@ -4,7 +4,7 @@
     <div class="sidenav">
       <h3 class="sidenav--groupName">概述</h3>
       <ul class="sidenav--list">
-        <li><router-link to="/installation">如何安装</router-link></li>
+        <li><router-link to="/Installation">如何安装</router-link></li>
         <li><a href="https://xiaoyann.github.io/smart-ui/demo">完整例子</a></li>
       </ul>
       <h3 class="sidenav--groupName">组件</h3>

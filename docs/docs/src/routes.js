@@ -1,6 +1,5 @@
-import installation from './pages/installation'
-// import TabBar from './pages/TabBar.md'
-// import Demos from './demos/Index'
+import Installation from './pages/installation'
+import TabBar from './pages/tabBar'
 // import Cell from './demos/Cell'
 // import Radio from './demos/Radio'
 // import Checkbox from './demos/Checkbox'
@@ -19,8 +18,8 @@ import installation from './pages/installation'
 // import Switcher from './demos/Switcher'
 
 const views = {
-  installation,
-  // TabBar,
+  Installation,
+  TabBar,
   // Demos,
   // Cell,
   // Radio,
@@ -50,17 +49,17 @@ const routes = Object.keys(views).map(
 
 routes.push({
   path: '/',
-  redirect: '/installation'
+  redirect: '/Installation'
 })
 
-// routes.push({
-//   path: '/TabBar/index',
-//   component: TabBar
-// })
+routes.push({
+  path: '/TabBar/index',
+  component: TabBar
+})
 
-// routes.push({
-//   path: '/TabBar/about',
-//   component: TabBar
-// })
+routes.push({
+  path: '/TabBar/about',
+  component: TabBar
+})
 
 export default routes

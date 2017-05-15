@@ -11,7 +11,7 @@ var config = {
 	entry: {
 		app: [
 			'webpack-dev-server/client?' + localServer,
-			'webpack/hot/only-dev-server',
+			// 'webpack/hot/only-dev-server',
 			'./src/main.js'
 		],
 		vendor: [
@@ -69,7 +69,7 @@ var config = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
-  	new webpack.HotModuleReplacementPlugin(),
+  	// new webpack.HotModuleReplacementPlugin(),
   ]
 }
 
