@@ -1,6 +1,6 @@
 import Installation from './pages/installation'
 import TabBar from './pages/tabBar'
-// import Cell from './demos/Cell'
+import Cell from './pages/cell'
 // import Radio from './demos/Radio'
 // import Checkbox from './demos/Checkbox'
 // import Field from './demos/Field'
@@ -20,8 +20,8 @@ import TabBar from './pages/tabBar'
 const views = {
   Installation,
   TabBar,
+  Cell,
   // Demos,
-  // Cell,
   // Radio,
   // Checkbox,
   // TabBar,
