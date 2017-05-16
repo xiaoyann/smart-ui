@@ -1,12 +1,13 @@
 import Installation from './pages/installation'
 import TabBar from './pages/tabBar'
 import Cell from './pages/cell'
+import Modal from './pages/modal'
 // import Radio from './demos/Radio'
 // import Checkbox from './demos/Checkbox'
 // import Field from './demos/Field'
 // import Datepicker from './demos/Datepicker'
 // import Selector from './demos/Selector'
-// import Modal from './demos/Modal'
+
 // import ActionSheet from './demos/ActionSheet'
 // import Loading from './demos/Loading'
 // import Spinner from './demos/Spinner'
@@ -21,6 +22,7 @@ const views = {
   Installation,
   TabBar,
   Cell,
+  Modal,
   // Demos,
   // Radio,
   // Checkbox,
@@ -28,7 +30,6 @@ const views = {
   // Field,
   // Datepicker,
   // Selector,
-  // Modal,
   // ActionSheet,
   // Loading,
   // Spinner,
