@@ -52,7 +52,6 @@ export default create({
     return {
       visible: false,
       animName: 'none',
-      source: source
     }
   },
 

@@ -33,7 +33,6 @@ export default create({
   data() {
     return {
       times: 0,
-      source: source
     }
   },
 

@@ -2,43 +2,41 @@ import Installation from './pages/installation'
 import TabBar from './pages/tabBar'
 import Cell from './pages/cell'
 import Modal from './pages/modal'
-// import Radio from './demos/Radio'
-// import Checkbox from './demos/Checkbox'
-// import Field from './demos/Field'
-// import Datepicker from './demos/Datepicker'
-// import Selector from './demos/Selector'
+import Popup from './pages/popup'
+import ActionSheet from './pages/actionSheet'
+import Loading from './pages/loading'
+import Spinner from './pages/spinner'
+import Toast from './pages/Toast'
+import Dialog from './pages/dialog'
+import Loadmore from './pages/loadmore'
+import Switcher from './pages/switcher'
+import Button from './pages/button'
+import Field from './pages/field'
+import Checkbox from './pages/checkbox'
+import Radio from './pages/radio'
+import Datepicker from './pages/datepicker'
+import Selector from './pages/selector'
 
-// import ActionSheet from './demos/ActionSheet'
-// import Loading from './demos/Loading'
-// import Spinner from './demos/Spinner'
-// import Toast from './demos/Toast'
-// import Dialog from './demos/Dialog'
-// import Loadmore from './demos/Loadmore'
-// import Popup from './demos/Popup'
-// import Button from './demos/Button'
-// import Switcher from './demos/Switcher'
 
 const views = {
   Installation,
   TabBar,
   Cell,
   Modal,
-  // Demos,
-  // Radio,
-  // Checkbox,
-  // TabBar,
-  // Field,
-  // Datepicker,
-  // Selector,
-  // ActionSheet,
-  // Loading,
-  // Spinner,
-  // Toast,
-  // Dialog,
-  // Loadmore,
-  // Popup,
-  // Button,
-  // Switcher
+  Popup,
+  ActionSheet,
+  Loading,
+  Spinner,
+  Toast,
+  Dialog,
+  Loadmore,
+  Switcher,
+  Button,
+  Field,
+  Checkbox,
+  Radio,
+  Datepicker,
+  Selector,
 }
 
 const routes = Object.keys(views).map(
