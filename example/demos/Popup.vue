@@ -11,12 +11,12 @@
   <Popup v-model="visible1">
     <div style="background-color: #fff; height: 200px; line-height: 200px; text-align: center;">
       <span>Popup</span>
-    </div>  
+    </div>
   </Popup>
   <Popup v-model="visible2" position="top">
     <div style="background-color: #fff; height: 200px; line-height: 200px; text-align: center;">
       <span>Popup</span>
-    </div>  
+    </div>
   </Popup>
 </div>
 </template>
