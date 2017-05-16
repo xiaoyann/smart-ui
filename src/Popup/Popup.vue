@@ -60,7 +60,7 @@ export default {
   computed: {
     conf() {
       return conf[this.position]
-    } 
+    }
   },
 
   watch: {
@@ -68,7 +68,9 @@ export default {
       this.visible = newVal
     },
     visible(newVal, oldVal) {
-      this.$emit('input', newVal)
+      if (newVal !== this.value) {
+        this.$emit('input', newVal)
+      }
     }
   }
 }
