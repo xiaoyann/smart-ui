@@ -42,19 +42,14 @@
 	<select ref="selector" class="Selector--select" @change="handleChange">
 		<slot></slot>
 	</select>
-	<div class="Selector--overlay">
-		{{getText()}}
-	</div>
+	<div class="Selector--overlay">{{text}}</div>
 </div>
 </template>
 
 <script>
 export default {
 	props: {
-		value: {},
-		placeholder: {
-			type: String,
-		}
+		value: {}
 	},
 
 	data() {
@@ -65,18 +60,23 @@ export default {
 	},
 
 	watch: {
-		selectedIndex(newIndex) {
-			const option = this.options[newIndex]
-			if (option) {
-				this.$refs.selector.selectedIndex = newIndex
-				this.$emit('input', option.value)
-			}
-		},
-		
 		value() {
 			this.checkStatus()
 		}
 	},
+
+  computed: {
+    text() {
+      const option = this.options[this.selectedIndex]
+      return  option ? option.text : ''
+    }
+  },
+
+  updated() {
+    if (this.$slots.default.length !== this.options.length) {
+      this.pickOptions()
+    }
+  },
 
 	mounted() {
 		this.pickOptions()
@@ -85,41 +85,37 @@ export default {
 	methods: {
 		pickOptions() {
 			const options = this.$refs.selector.options
-			this.selectedIndex = this.$refs.selector.selectedIndex
 			;[].forEach.call(options, option => {
 				this.options.push({
 					text: option.innerHTML,
-					value: option.value,
+					value: option.value + '',
 				})
 			})
-			this.checkStatus()
+      this.selectedIndex = this.$refs.selector.selectedIndex
+      this.emitEvent()
 		},
 
 		checkStatus() {
-			let selectedIndex = this.selectedIndex
-			this.options.forEach((option, index) => {
+			this.options.some((option, index) => {
 				if (option.value === this.value + '') {
-					selectedIndex = index
+					this.selectedIndex = index
+          this.$refs.selector.selectedIndex = index
+          return true
 				}
 			})
-			this.selectedIndex = selectedIndex
 		},
 
 		handleChange(e) {
-			if (this.options.length === 0) {
-				this.pickOptions()
-			}
 			this.selectedIndex = e.target.selectedIndex
+      this.emitEvent()
 		},
 
-		getText() {
-			if (this.selectedIndex > -1) {
-				const option = this.options[this.selectedIndex] || {}
-				return option.text
-			} else {
-				return this.placeholder
-			}
-		}
+    emitEvent() {
+      const option = this.options[this.selectedIndex]
+      if (option && this.value + '' !== option.value) {
+        this.$emit('input', option.value)
+      }
+    }
 	}
 }
 </script>
