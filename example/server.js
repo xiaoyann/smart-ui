@@ -26,6 +26,17 @@ var config = {
 
   module: {
   	rules: [
+      {
+        test: /.tpl$/,
+        loader: 'vue-template-loader',
+        options: {
+          transformToRequire: {
+            // The key should be element name,
+            // the value should be attribute name or its array
+            img: 'src'
+          }
+        }
+      },
   		{
   			test: /.js$/,
   			exclude: /node_modules/,
