@@ -3,7 +3,7 @@ import Button from './Button'
 const theme = {
   default: {
     button: {
-      className: 'Button--default',
+      className: 'Button--default'
     },
     spinner: {
       bgcolor: '#ddd',
@@ -12,7 +12,7 @@ const theme = {
   },
   primary: {
     button: {
-      className: 'Button--primary',
+      className: 'Button--primary'
     },
     spinner: {
       bgcolor: 'rgba(255, 255, 255, .4)',
@@ -21,7 +21,7 @@ const theme = {
   },
   caution: {
     button: {
-      className: 'Button--caution',
+      className: 'Button--caution'
     },
     spinner: {
       bgcolor: 'rgba(255, 255, 255, .4)',
@@ -31,9 +31,9 @@ const theme = {
 }
 
 ;(opt => {
-  Object.keys(opt).forEach(
-    name => Button[name] = opt[name]
-  )
+  Object.keys(opt).forEach(name => {
+    Button[name] = opt[name]
+  })
 })({
   props: {
     // 字体大小
@@ -75,7 +75,7 @@ const theme = {
       return {
         Button: true,
         disabled: typeof this.disabled !== 'undefined' || this.loading,
-        ['Button--' + this.theme]: true,
+        ['Button--' + this.theme]: true
       }
     },
 
@@ -84,7 +84,7 @@ const theme = {
         width: this.width,
         height: this.height,
         'border-radius': this.radius,
-        'font-size': this.fontSize,
+        'font-size': this.fontSize
       }
     },
 
@@ -93,12 +93,12 @@ const theme = {
     },
 
     bgcolor() {
-      let config = theme[this.theme]
+      const config = theme[this.theme]
       return config.spinner.bgcolor
     },
 
     forecolor() {
-      let config = theme[this.theme]
+      const config = theme[this.theme]
       return config.spinner.forecolor
     }
   },

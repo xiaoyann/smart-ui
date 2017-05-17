@@ -7,7 +7,7 @@
   border-radius: 18px;
   background-color: #d5d5d5;
   transition: all 0.2s linear;
-}  
+}
 
 .Switcher--slider {
   position: absolute;
@@ -71,7 +71,7 @@ export default {
 
   computed: {
     on() {
-      return this.onVal == this.value 
+      return this.onVal === this.value
     }
   },
 
@@ -82,4 +82,3 @@ export default {
   }
 }
 </script>
-

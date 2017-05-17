@@ -2,27 +2,27 @@ import Vue from 'vue'
 import Loading from './Loading'
 
 const loading = new Vue({
-	...Loading
+  ...Loading
 })
 
 ;(() => {
-	let id = 'smart-ui-loading-mount-point'
-	let mountPoint = document.createElement('div')
-	mountPoint.id = id
-	document.body.appendChild(mountPoint)
-	loading.$mount('#' + id)
+  const id = 'smart-ui-loading-mount-point'
+  const mountPoint = document.createElement('div')
+  mountPoint.id = id
+  document.body.appendChild(mountPoint)
+  loading.$mount('#' + id)
 })()
 
 export default {
-	show(message) {
-		loading.show(message)
-	},
+  show(message) {
+    loading.show(message)
+  },
 
-	hide() {
-		loading.hide()
-	},
+  hide() {
+    loading.hide()
+  },
 
-	zIndex(zIndex) {
+  zIndex(zIndex) {
     loading.zIndex = zIndex
     return loading
   }

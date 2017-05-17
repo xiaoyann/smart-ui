@@ -55,7 +55,7 @@ export default {
         'border-right-color': this.bgcolor,
         'border-bottom-color': this.bgcolor,
         'border-left-color': this.forecolor,
-        'border-width': this.width + 'px',
+        'border-width': this.width + 'px'
       }
     }
   }

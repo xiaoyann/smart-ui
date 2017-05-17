@@ -1,27 +1,27 @@
 <style lang="stylus">
 .CheckboxOptionBox:first-child {
-	.Cell:before {
-		border-top: none !important;
-	}
+  .Cell:before {
+    border-top: none !important;
+  }
 }
 
 .CheckboxOptionBox {
-	.Cell:before {
-		border-top: 1px solid #e5e5e5 !important;
-	}
+  .Cell:before {
+    border-top: 1px solid #e5e5e5 !important;
+  }
 }
 
 .CheckboxOption {
-	display: flex;
-	height: 17px;
-	align-items: center;
+  display: flex;
+  height: 17px;
+  align-items: center;
 }
 
 .CheckboxOption--name {
-	margin-left: 10px;
-	font-size: 15px;
-	line-height: 17px;
-	color: #333;
+  margin-left: 10px;
+  font-size: 15px;
+  line-height: 17px;
+  color: #333;
 }
 
 .CheckboxOption--icon {
@@ -34,7 +34,7 @@
   box-sizing: border-box;
   transition: all .2s;
   &:after {
-  	content: ' ';
+    content: ' ';
     position: absolute;
     left: 4px;
     top: 1px;
@@ -51,23 +51,23 @@
 }
 
 .CheckboxOption--icon.checked {
-	border-color: #2b8ff7;
-	background-color: #2b8ff7;
-	&:after {
+  border-color: #2b8ff7;
+  background-color: #2b8ff7;
+  &:after {
     border-color: #fff;
     transform: rotate(45deg) scale(1);
-	}
+  }
 }
 </style>
 
 <template>
 <Cell @click="handleClick" class="CheckboxOptionBox">
-	<div slot="header" class="CheckboxOption">
-		<div class="CheckboxOption--icon" :class="{'checked': checked}"></div>
-		<span class="CheckboxOption--name">
-			<slot></slot>
-		</span>
-	</div>	
+  <div slot="header" class="CheckboxOption">
+    <div class="CheckboxOption--icon" :class="{'checked': checked}"></div>
+    <span class="CheckboxOption--name">
+      <slot></slot>
+    </span>
+  </div>
 </Cell>
 </template>
 
@@ -75,34 +75,31 @@
 import { Cell } from '../Cell'
 
 export default {
-	name: 'CheckboxOption',
+  name: 'CheckboxOption',
 
-	props: [
-		'value'
-	],
+  props: [
+    'value'
+  ],
 
-	data() {
-		return {
-			checked: false
-		}
-	},
+  data() {
+    return {
+      checked: false
+    }
+  },
 
-	components: {
-		Cell
-	},
+  components: {
+    Cell
+  },
 
-	methods: {
-		handleClick() {
-			this.checked = !this.checked
-			this.$emit('click', this.checked, this.value)
-		},
+  methods: {
+    handleClick() {
+      this.checked = !this.checked
+      this.$emit('click', this.checked, this.value)
+    },
 
-		checkStatus(values) {
-			this.checked = values.indexOf(this.value) > -1
-		}
-	}
+    checkStatus(values) {
+      this.checked = values.indexOf(this.value) > -1
+    }
+  }
 }
 </script>
-
-
-

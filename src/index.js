@@ -21,46 +21,48 @@ import $toast from './Toast'
 import $dialog from './Dialog'
 
 const components = {
-	TabBar,
-	TabBarItem,
-	Cell,
-	CellGroup,
-	Radio,
-	RadioOption,
-	Checkbox,
-	CheckboxOption,
-	Field,
-	Datepicker,
-	Selector,
-	Modal,
-	Popup,
-	Loadmore,
-	Spinner,
-	Button,
-	Switcher
+  TabBar,
+  TabBarItem,
+  Cell,
+  CellGroup,
+  Radio,
+  RadioOption,
+  Checkbox,
+  CheckboxOption,
+  Field,
+  Datepicker,
+  Selector,
+  Modal,
+  Popup,
+  Loadmore,
+  Spinner,
+  Button,
+  Switcher
 }
 
 // register globally all components
-function install(Vue, options) {
-	for (let name in components) {
-		let component = components[name].component || components[name]
-		Vue.component(name, component)
-	}
-	Vue.prototype.$actionSheet = $actionSheet
-	Vue.prototype.$loading = $loading
-	Vue.prototype.$toast = $toast
-	Vue.prototype.$dialog = $dialog
+function install(Vue) {
+  for (const name in components) {
+    const component = components[name].component || components[name]
+    Vue.component(name, component)
+  }
+  Vue.prototype.$actionSheet = $actionSheet
+  Vue.prototype.$loading = $loading
+  Vue.prototype.$toast = $toast
+  Vue.prototype.$dialog = $dialog
 }
 
-// Components can export a function named config to 
+// Components can export a function named config to
 // customize some options for user
 function config(name) {
-	const args = [].slice.call(arguments, 1)
-	if (typeof components[name].config === 'function') {
-		components[name].config.apply(null, args)
-	} else {
-		console.warn(`${name}.config is not a function`)
-	}
+  const args = [].slice.call(arguments, 1)
+  if (typeof components[name].config === 'function') {
+    components[name].config.apply(null, args)
+  }
+  else {
+    console.warn(`${name}.config is not a function`)
+  }
 }
 
+/* eslint-disable */
 module.exports = { install, config }
