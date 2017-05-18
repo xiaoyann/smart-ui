@@ -10,6 +10,10 @@ export default create({
         javascript: '',
         css: ''
       })
+    },
+    defIndex: {
+      type: Number,
+      default: 0
     }
   },
 
@@ -20,7 +24,7 @@ export default create({
         'javascript',
         'css'
       ],
-      index: 0,
+      index: this.defIndex,
     }
   },
 
@@ -28,6 +32,9 @@ export default create({
     index() {
       this.toogle()
     },
+    defIndex(newVal) {
+      this.index = newVal
+    }
   },
 
   mounted() {
