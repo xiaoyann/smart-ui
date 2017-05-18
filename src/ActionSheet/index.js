@@ -113,7 +113,7 @@ const actionsheet = new Vue(create({
 })()
 
 export default {
-  // Vue.$actionSheet.config({
+  // SmartUI.config('ActionSheet', {
   //    zIndex: 100,
   //    tintColor: '#38f'
   // })
