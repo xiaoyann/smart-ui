@@ -56,8 +56,15 @@ function install(Vue) {
 // customize some options for user
 function config(name) {
   const args = [].slice.call(arguments, 1)
-  if (typeof components[name].config === 'function') {
-    components[name].config.apply(null, args)
+  const modules = {
+    ActionSheet: $actionSheet,
+    Loading: $loading,
+    Toast: $toast,
+    Dialog: $dialog
+  }
+  const module = components[name] || modules[name]
+  if (typeof module.config === 'function') {
+    module.config.apply(null, args)
   }
   else {
     console.warn(`${name}.config is not a function`)
