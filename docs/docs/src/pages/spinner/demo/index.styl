@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  & > div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+  }
+
+  & > div:nth-child(1) {
+    background-color: rgba(38,162,255, 1);
+  }
+
+  & > div:nth-child(2) {
+    background-color: rgba(0, 255, 0, 1);
+  }
+
+  & > div:nth-child(3) {
+    background-color: rgba(255, 0, 0, 1);
+  }
+
+  & > div:nth-child(4) {
+    background-color: #fff;
+  }
+}
