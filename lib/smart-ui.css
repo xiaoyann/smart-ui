@@ -302,19 +302,24 @@
 .Field--label {
   min-width: 75px;
   max-width: 150px;
-  padding-right: 10px;
+  padding: 5px 10px 5px 0;
   font-size: 15px;
+  line-height: 1.15;
+  font-family: sans-serif;
   color: #333;
 }
 .Field--input {
   flex: 1;
+  font-size: 0;
 }
 .Field--input input {
   outline: none;
   width: 100%;
   padding: 5px 0;
-  border: none;
-  font-size: 14px;
+  border: 0;
+  font-size: 15px;
+  line-height: 1.15;
+  font-family: sans-serif;
 }
 .Field--delBox {
   padding-left: 5px;
