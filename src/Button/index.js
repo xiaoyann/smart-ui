@@ -62,7 +62,10 @@ const theme = {
       default: 'default'
     },
     // 禁用
-    disabled: undefined,
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     // loading
     loading: {
       type: Boolean,
@@ -74,7 +77,7 @@ const theme = {
     classes() {
       return {
         Button: true,
-        disabled: typeof this.disabled !== 'undefined' || this.loading,
+        disabled: this.disabled || this.loading,
         ['Button--' + this.theme]: true
       }
     },
@@ -105,7 +108,7 @@ const theme = {
 
   methods: {
     handleClick() {
-      if (!this.loading) {
+      if (!this.loading && !this.disabled) {
         this.$emit('click')
       }
     }
