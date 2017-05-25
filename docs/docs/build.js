@@ -22,7 +22,7 @@ var config = {
   },
 
   output: {
-    filename: 'dist/js/[name].[chunkhash].js',
+    filename: 'dist/js/[name].js',
     path: __dirname
   },
 
@@ -54,7 +54,7 @@ var config = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'file-loader?name=images/[hash].[ext]'
+        loader: 'file-loader?name=images/[name].[ext]'
       },
       {
         test: /\.vue$/,
@@ -111,7 +111,7 @@ var config = {
     }),
 
     // extract css into its own file
-    new ExtractTextPlugin('dist/css/[name].[contenthash].css'),
+    new ExtractTextPlugin('dist/css/[name].css'),
   ],
 }
 
