@@ -6,6 +6,7 @@
   padding: 2px;
   border-radius: 18px;
   background-color: #d5d5d5;
+  box-sizing: content-box;
   transition: all 0.2s linear;
 }
 
