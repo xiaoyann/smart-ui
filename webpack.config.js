@@ -61,18 +61,22 @@ var config = {
 	      options: {
           loaders: {
             stylus: ExtractTextPlugin.extract({
-              use: 'css-loader!stylus-loader?sourceMap'
+              use: ['css-loader?sourceMap', 'postcss-loader?sourceMap', 'stylus-loader?sourceMap']
             })
           }
         }
 	    },
 	    {
 	    	test: /\.css$/,
-	    	loader: ExtractTextPlugin.extract('css-loader?sourceMap')
+	    	loader: ExtractTextPlugin.extract({
+          use: ['css-loader?sourceMap', 'postcss-loader?sourceMap']
+        })
 	    },
 	   	{
 	    	test: /\.(styl)$/,
-	    	loader: ExtractTextPlugin.extract(['css-loader?sourceMap', 'stylus-loader'])
+	    	loader: ExtractTextPlugin.extract({
+          use: ['css-loader?sourceMap', 'postcss-loader?sourceMap', 'stylus-loader?sourceMap']
+        })
 	    }
   	]
   },
@@ -81,15 +85,6 @@ var config = {
   	new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"'
     }),
-
-    // uglify js
-		// new webpack.optimize.UglifyJsPlugin({
-  //     compress: {
-  //       warnings: false
-  //     },
-  //     sourceMap: true,
-  //     minimize: true
-  //   }),
 
     // extract css into its own file
     new ExtractTextPlugin('smart-ui.css'),
