@@ -97,7 +97,9 @@ export default {
     // whether display arrow icon
     arrow: undefined,
     // navigate to another URL by Router
-    to: String,
+    to: {
+      type: [String, Object]
+    },
     // active style
     active: undefined
   },
