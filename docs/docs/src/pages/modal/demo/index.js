@@ -30,8 +30,7 @@ export default create({
   data() {
     return {
       visible: false,
-      animName: 'none',
-      source: source
+      animName: 'none'
     }
   },
 
@@ -52,6 +51,7 @@ export default create({
     return {
       visible: false,
       animName: 'none',
+      source
     }
   },
 
