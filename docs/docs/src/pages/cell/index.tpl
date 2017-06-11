@@ -69,4 +69,7 @@
     </tr>
   </tbody>
 </table>
+
+<h2>CellGroup 不显示 border</h2>
+<smart-code :code="code" lang="html"></smart-code>
 </div>
