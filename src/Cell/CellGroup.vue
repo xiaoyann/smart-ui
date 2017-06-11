@@ -2,22 +2,35 @@
 .CellGroup {
   position: relative;
   .CellBox {
-    padding-left: 13px;
+    padding-left: 15px;
   }
   .Cell {
     padding-left: 0;
+  }
+  .CellBox:last-child .Cell:after {
+    border: 0;
   }
 }
 </style>
 
 <template>
-<div class="CellGroup smart-border-top smart-border-bottom">
+<div
+  class="CellGroup"
+  :class="{'smart-border-bottom': hasBorder, 'smart-border-top': hasBorder}"
+>
   <slot></slot>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'CellGroup'
+  name: 'CellGroup',
+
+  props: {
+    hasBorder: {
+      type: Boolean,
+      default: true
+    }
+  }
 }
 </script>

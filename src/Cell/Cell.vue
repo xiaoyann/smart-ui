@@ -16,8 +16,8 @@
   min-height: 48px;
   padding-top: 8px;
   padding-bottom: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
   box-sizing: border-box;
 }
 
@@ -70,7 +70,7 @@
 
 <template>
 <div class="CellBox" @click="handleClick" :class="{'Cell--active': active !== undefined}">
-  <div class="Cell smart-border-top">
+  <div class="Cell smart-border-bottom">
     <div class="Cell--icon" v-if="hasIcon">
       <slot name="icon"></slot>
     </div>
