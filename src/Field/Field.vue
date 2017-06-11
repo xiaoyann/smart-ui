@@ -8,24 +8,31 @@
 .Field--label {
   min-width: 75px;
   max-width: 150px;
-  padding: 5px 10px 5px 0;
+  height: 20px;
+  padding-right: 10px;
   font-size: 15px;
-  line-height: 1.15;
+  line-height: 20px;
   font-family: sans-serif;
   color: #333;
 }
 
 .Field--input {
   flex: 1;
+  height: 20px;
   font-size: 0;
+
   input {
+    -webkit-appearance: none;
     outline: none;
     width: 100%;
-    padding: 5px 0;
+    height: 20px;
+    padding: 0;
     border: 0;
+    border-radius: 0;
     font-size: 15px;
-    line-height: 1.15;
+    line-height: 20px;
     font-family: sans-serif;
+    background-color: #fff;
   }
 }
 
