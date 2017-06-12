@@ -19,6 +19,17 @@ SmartUI.config('Button', 'cutout', {
   }
 })
 
+SmartUI.config('Button', 'primary-red', {
+  button: {
+    className: 'Button--test',
+  },
+  spinner: {
+    bgcolor: 'rgba(255, 255, 255, .4)',
+    forecolor: '#fff'
+  }
+})
+
+
 const router = new Router({ routes })
 
 new Vue({

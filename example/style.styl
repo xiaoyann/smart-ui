@@ -5,7 +5,7 @@ html * {
 body {
 	margin: 0;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	background-color: #fbf9fe
+	background-color: #fbf9fe;
 }
 
 .mb15 {
@@ -18,4 +18,24 @@ body {
 
 .TabBarItem.selected {
 	color: #1c91af;
+}
+
+.Button--cutout {
+  color: #dc4f45;
+  border: 1px solid #dc4f45 !important;
+  background-color: #fff;
+  &.disabled,
+  &:active {
+    color: rgba(220, 79, 69, .6);
+  }
+}
+
+.Button--primary-red {
+  color: #fff;
+  background-color: #dc4f45;
+
+  &.disabled,
+  &:active {
+    color: rgba(255, 255, 255, .6);
+  }
 }

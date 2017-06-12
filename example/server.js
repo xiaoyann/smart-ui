@@ -2,7 +2,23 @@ var webpack = require('webpack')
 var WebpackDevServer = require('webpack-dev-server')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var port = 8080
-var localServer = `http://localhost:${port}`
+var host = getIP()
+var localServer = `http://${host}:${port}`
+
+function getIP() {
+  var os = require('os')
+  var IPv4 = '127.0.0.1'
+  var interfaces = os.networkInterfaces()
+  for (var key in interfaces) {
+    interfaces[key].some(function(details){
+      if (details.family == 'IPv4' && key == 'en0') {
+        IPv4 = details.address
+        return true
+      }
+    })
+  }
+  return IPv4
+}
 
 var config = {
 
@@ -11,7 +27,6 @@ var config = {
 	entry: {
 		app: [
 			'webpack-dev-server/client?' + localServer,
-			'webpack/hot/only-dev-server',
 			'./main.js'
 		],
 		vendor: [
@@ -62,16 +77,15 @@ var config = {
   },
 
   plugins: [
-  // https://github.com/ampedandwired/html-webpack-plugin
+    // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       template: './index.html'
-    }),
-  	new webpack.HotModuleReplacementPlugin(),
+    })
   ],
 
   performance: {
     hints: process.env.NODE_ENV === 'production'
-  },
+  }
 }
 
 var compiler = webpack(config)
@@ -79,7 +93,7 @@ var compiler = webpack(config)
 new WebpackDevServer(compiler, {
 	contentBase: __dirname,
 	stats: { colors: true, chunks: false },
-	hot: true
+  disableHostCheck: true
 })
 .listen(port, function() {
 	console.log('\n ==> '+ localServer +' \n')
