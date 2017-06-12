@@ -39,7 +39,7 @@ const theme = {
     // 字体大小
     fontSize: {
       type: String,
-      default: '12px'
+      default: '18px'
     },
     // 宽
     width: {
@@ -49,12 +49,12 @@ const theme = {
     // 高
     height: {
       type: String,
-      default: ''
+      default: '40px'
     },
     // 圆角
     radius: {
       type: String,
-      default: '3px'
+      default: '2px'
     },
     // 主题
     theme: {

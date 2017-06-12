@@ -1,15 +1,13 @@
 <style lang="stylus">
 .Button {
   outline: none;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  padding: 3px 6px 2px;
+  padding: 0 6px;
   border: 0;
   box-sizing: border-box;
   line-height: 1;
-  font-family: sans-serif;
-  transition: all .15s linear;
 }
 
 .Button--default {
@@ -46,8 +44,8 @@
 
 <template>
 <div :class="classes" :style="style" @click="handleClick">
-  <Spinner v-if="loading" :size="size" width="1" :bgcolor="bgcolor" :forecolor="forecolor" style="margin-right: 5px" />
-  <div><slot></slot></div>
+  <Spinner v-if="loading && !disabled" :size="size" width="1" :bgcolor="bgcolor" :forecolor="forecolor" style="margin-right: 5px" />
+  <div class="text"><slot></slot></div>
 </div>
 </template>
 
