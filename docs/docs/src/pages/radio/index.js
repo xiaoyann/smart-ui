@@ -1,4 +1,8 @@
 import create from './index.tpl'
-export default create({
+import demo from './demo'
 
+export default create({
+  components: {
+    demo
+  }
 })
