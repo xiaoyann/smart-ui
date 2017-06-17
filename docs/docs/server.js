@@ -1,3 +1,4 @@
+var path = require('path')
 var webpack = require('webpack')
 var WebpackDevServer = require('webpack-dev-server')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -24,6 +25,12 @@ var config = {
   	extensions: ['.js', '.vue']
   },
 
+  resolveLoader: {
+    alias: {
+      'tpl-loader': path.resolve(__dirname, './tpl-loader.js')
+    }
+  },
+
   module: {
   	rules: [
       {
@@ -32,14 +39,21 @@ var config = {
       },
       {
         test: /.tpl$/,
-        loader: 'vue-template-loader',
-        options: {
-          transformToRequire: {
-            // The key should be element name,
-            // the value should be attribute name or its array
-            img: 'src'
+        use: [
+          {
+            loader: 'vue-template-loader',
+            options: {
+              transformToRequire: {
+                // The key should be element name,
+                // the value should be attribute name or its array
+                img: 'src'
+              }
+            }
+          },
+          {
+            loader: 'tpl-loader'
           }
-        }
+        ]
       },
   		{
   			test: /.js$/,
