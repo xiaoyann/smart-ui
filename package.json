@@ -1,6 +1,6 @@
 {
   "name": "smart-ui",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "description": "High Quality Mobile UI Componets by Vue.js 2.",
   "main": "lib/smart-ui.js",
   "scripts": {
