@@ -3,12 +3,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 24px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  text-align: center;
-  line-height: 1;
-  font-size: 13px;
+  height: 30px;
+  box-sizing: border-box;
+  font-size: 12px;
   color: #858585;
   span {
     margin-left: 5px;
@@ -17,23 +14,31 @@
 </style>
 
 <template>
-<div class="Loadmore" v-show="visible">
+<div class="Loadmore" v-show="show">
   <slot>
-    <Spinner size="18" />
+    <Spinner size="16" />
     <span>{{ desc }}</span>
   </slot>
 </div>
 </template>
 
 <script>
+function getDocInfo() {
+  return {
+    scrollTop: document.body.scrollTop,
+    pageHeight: document.body.offsetHeight,
+    windowHeight: document.documentElement.clientHeight
+  }
+}
+
 export default {
 
   name: 'Lodamore',
 
   props: {
-    allLoaded: {
+    visible: {
       type: Boolean,
-      default: false
+      default: true
     },
     desc: {
       type: String,
@@ -43,44 +48,37 @@ export default {
 
   data() {
     return {
-      visible: false
+      show: false
     }
   },
 
   watch: {
-    allLoaded(newVal) {
-      this.visible = !newVal
+    // visible 变化时去检测组件是否可见
+    visible(newVal) {
+      this.detectVisible()
     }
   },
 
   methods: {
+    detectVisible() {
+      const docInfo = getDocInfo()
+      if (docInfo.pageHeight >= docInfo.windowHeight && this.visible) {
+        this.show = true
+      } else {
+        this.show = false
+      }
+    },
+
     onscroll() {
-      if (this.allLoaded) {
-        return this.stopListen()
-      }
-
-      const scrollTop = document.body.scrollTop
-      const clientHeight = document.documentElement.clientHeight
-      let scrollHeight = document.body.scrollHeight
-
-      if (this.visible) {
-        scrollHeight -= 44
-      }
-
-      if (scrollTop + clientHeight >= scrollHeight) {
+      this.detectVisible()
+      const docInfo = getDocInfo()
+      if (docInfo.pageHeight - docInfo.scrollTop === docInfo.windowHeight && this.visible) {
         this.$emit('reachBottom')
       }
     },
 
     startListen() {
-      const clientHeight = document.documentElement.clientHeight
-      const scrollHeight = document.body.scrollHeight
-      // 如果页面数据不够一屏，说明没有更多的数据需要加载，所以不需要监听 scroll
-      // 事件，不需要使用 Loadmore
-      if (scrollHeight > clientHeight) {
-        this.visible = true
-        window.addEventListener('scroll', this.onscroll)
-      }
+      window.addEventListener('scroll', this.onscroll)
     },
 
     stopListen() {
@@ -89,6 +87,7 @@ export default {
   },
 
   mounted() {
+    this.detectVisible()
     this.startListen()
   },
 
