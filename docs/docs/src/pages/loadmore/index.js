@@ -1,7 +1,7 @@
 import create from './index.tpl'
 
 const htmlcode = `
-<Loadmore @reachBottom="loadmore" :allLoaded="allLoaded"></Loadmore>
+<Loadmore @reachBottom="loadmore" :visible="!allLoaded"></Loadmore>
 `
 
 const jscode = `

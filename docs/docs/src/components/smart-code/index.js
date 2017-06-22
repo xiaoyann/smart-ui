@@ -23,6 +23,7 @@ export default create({
     let code = this.code.trim()
     if (!code && this.$slots.default) {
       code = this.$slots.default[0].text.trim()
+      console.log(code)
     }
     if (prism.languages[lang]) {
       this.content = prism.highlight(code, prism.languages[lang])
