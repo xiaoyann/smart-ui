@@ -1,10 +1,6 @@
 <template>
-<div>
-	<ul>
-    <li>
-      <a href="javascript:;" @click="open">Open ActionSheet</a>
-    </li> 
-  </ul>
+<div style="padding: 30px">
+	<a href="javascript:;" @click="open">Open ActionSheet</a>
 </div>
 </template>
 
@@ -12,7 +8,7 @@
 export default {
 	methods: {
 		open() {
-			const options =	[
+			let options =	[
         {
           text: '我再想想',
           onSelect: () => {
@@ -31,6 +27,8 @@ export default {
           disable: true
         }
 	    ]
+      options = options.concat(options)
+      options = options.concat(options)
       this.$actionSheet.show('确认要分手吗？', options, false)
 		}
 	}
