@@ -46,7 +46,7 @@ function install(Vue) {
     const component = components[name].component || components[name]
     Vue.component(name, component)
   }
-  Vue.prototype.$actionSheet = $actionSheet
+  Vue.prototype.$actionSheet = $actionSheet.init()
   Vue.prototype.$loading = $loading
   Vue.prototype.$toast = $toast
   Vue.prototype.$dialog = $dialog

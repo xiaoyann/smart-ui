@@ -8,9 +8,7 @@ const disableColor = '#999999'
 // this color means should be careful
 const destructiveColor = '#FF3B30'
 
-// instantiate directly
-// only one instance of ActionSheet in an Application
-const actionsheet = new Vue(create({
+const options = create({
   name: 'ActionSheet',
 
   data() {
@@ -101,18 +99,23 @@ const actionsheet = new Vue(create({
       return this.tintColor
     }
   }
-}))
+})
 
-// create a mount point for ActionSheet and mount it
-;(function() {
-  const id = 'smart-ui-actionsheet-mount-point'
-  const mountPoint = document.createElement('div')
-  mountPoint.id = id
-  document.body.appendChild(mountPoint)
-  actionsheet.$mount('#' + id)
-})()
 
 export default {
+  init() {
+    // only one instance of ActionSheet in an Application
+    if (!this.actionsheet) {
+      this.actionsheet = new Vue(options)
+      // create a mount point for ActionSheet and mount it
+      const id = 'smart-ui-actionsheet-mount-point'
+      const mountPoint = document.createElement('div')
+      mountPoint.id = id
+      document.body.appendChild(mountPoint)
+      this.actionsheet.$mount('#' + id)
+    }
+    return this
+  },
   // SmartUI.config('ActionSheet', {
   //    zIndex: 100,
   //    tintColor: '#38f'
@@ -120,17 +123,17 @@ export default {
   config(conf) {
     ['tintColor', 'zIndex'].forEach(name => {
       if (typeof conf[name] !== 'undefined') {
-        actionsheet[name] = conf[name]
+        this.actionsheet[name] = conf[name]
       }
     })
     return this
   },
 
   show() {
-    actionsheet.show.apply(actionsheet, arguments)
+    this.actionsheet.show.apply(this.actionsheet, arguments)
   },
 
   hide() {
-    actionsheet.hide.apply(actionsheet, arguments)
+    this.actionsheet.hide.apply(this.actionsheet, arguments)
   }
 }
