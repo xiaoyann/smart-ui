@@ -13,7 +13,13 @@
   line-height: 1.5;
   color: #999;
   background-color: #fff;
-} 
+}
+
+.ActionSheet--options {
+  overflow: scroll;
+  max-height: 300px;
+  -webkit-overflow-scrolling: touch;
+}
 
 .ActionSheet--option {
   width: 100%;
