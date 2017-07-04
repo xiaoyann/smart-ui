@@ -13,7 +13,7 @@
         <p style="font-size: 12px; color: #999">湖南省会城市，娱乐城市~</p>
       </div>
     </SelectorOption>
-    <SelectorOption value="2" text="岳阳"></SelectorOption>
+    <SelectorOption :value="0" text="岳阳"></SelectorOption>
     <SelectorOption value="3" text="湘潭" disabled></SelectorOption>
     <SelectorOption value="4" text="常德"></SelectorOption>
   </Selector>
@@ -27,7 +27,7 @@
 export default {
   data() {
     return {
-      city: "2",
+      city: 0,
       hobby: ["1", "3", "5", "7", "9"],
       options: [
         { text: '北京', value: "1" },
