@@ -27,7 +27,9 @@ const Selector = create({
       type: String,
       default: ''
     },
-    value: {},
+    value: {
+      type: [String, Number, Array]
+    },
     // 是否多选，默认是单选
     multiple: {
       default: false
@@ -40,7 +42,24 @@ const Selector = create({
     },
     //
     options: {
-      type: Array
+      validator(opts) {
+        let isValid = true
+        if (Array.isArray(opts)) {
+          opts.some(opt => {
+            if (
+              typeof opt !== 'object' ||
+              !opt.hasOwnProperty('text') ||
+              !opt.hasOwnProperty('value')
+            ) {
+              isValid = false
+              return true
+            }
+          })
+        } else {
+          isValid = false
+        }
+        return isValid
+      }
     }
   },
 
@@ -86,7 +105,7 @@ const Selector = create({
     },
 
     isSelected(value) {
-      return this.isMultiple ? this.value.indexOf(value) > -1 : value == this.value
+      return this.isMultiple ? this.value.indexOf(value) > -1 : isEqual(value, this.value)
     },
 
     eachOptions(callback) {
@@ -146,13 +165,11 @@ const Selector = create({
 
       // 点击已被选中 option，则取消选中状态
       if (props.selected) {
-        value = this.isMultiple ? this.value.filter(v => v != props.value) : ''
+        value = this.isMultiple ? this.value.filter(v => !isEqual(v, props.value)) : ''
       } else {
         value = this.isMultiple ? this.value.slice().concat(props.value) : props.value
         if (!this.isMultiple && this.autoHide) {
-          setTimeout(() => {
-            this.hide()
-          }, 200)
+          setTimeout(() => this.hide(), 200)
         }
       }
 
@@ -160,6 +177,11 @@ const Selector = create({
     }
   }
 })
+
+
+function isEqual(a, b) {
+  return a + '' === b + ''
+}
 
 function toogleStatus(node, selected) {
   if (selected) {
