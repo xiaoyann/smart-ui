@@ -1,0 +1,101 @@
+$hdHeight = 40px;
+
+.Selector {
+  position: relative;
+}
+
+.Selector--values {
+  max-width: 40%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  color: #8e8e90;
+}
+
+.Selector--hd {
+  display: flex;
+  justify-content: space-between;
+  height: @hdHeight;
+  background-color: #f0f0f0;
+}
+
+.Selector--bd {
+  max-height: 320px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.Selector--notice {
+  height: $hdHeight;
+  padding-left: 15px;
+  line-height: @height;
+  font-size: 12px;
+  color: #858585;
+}
+
+.Selector--confirm {
+  height: $hdHeight;
+  line-height: @height;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 14px;
+  color: #2b8ff7;
+}
+
+.Selector--option {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+  &.disabled .Selector--icon {
+    border-color: #e5e5e5;
+  }
+  &.disabled .Selector--icon:after {
+    display: block;
+    border-color: #e5e5e5;
+  }
+  &.active .Selector--icon {
+    border-color: #2b8ff7;
+  }
+  &.active .Selector--icon:after {
+    display: block;
+    border-color: #2b8ff7;
+  }
+}
+
+.Selector--option--bd {
+  flex: 1;
+}
+
+.Selector--icon {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  &:after {
+    content: "";
+    display: none;
+    width: 5px;
+    height: 10px;
+    margin-top: 3px;
+    margin-left: 6px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #2b8ff7;
+    border-left: 0;
+    border-top: 0;
+    transform: rotate(45deg);
+  }
+}
+
+.Selector--groupName {
+  padding: 5px 15px;
+  text-align: left;
+  font-size: 12px;
+  color: #858585;
+  background-color: #f5f5f5;
+}
