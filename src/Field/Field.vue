@@ -103,7 +103,7 @@ export default {
     },
     align: {
       type: String,
-      default: 'left'
+      default: 'right'
     },
     value: {
     }
