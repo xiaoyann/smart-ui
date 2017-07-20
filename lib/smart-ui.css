@@ -628,9 +628,9 @@ to {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
 }
-}
-.Button {
-  outline: none;
+}.Button {
+  overflow: hidden;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -640,40 +640,27 @@ to {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 6px;
-  border: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+.Button--name {
+  font-size: 0.45em;
   line-height: 1;
 }
-.Button--default {
-  color: #666;
-  border: 1px solid #e5e5e5;
-  background-color: #f6f6f6;
+.Button--overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.5;
 }
-.Button--default.disabled,
-.Button--default:active {
-  color: rgba(102,102,102,0.6);
-  background-color: rgba(246,246,246,0.8);
+.Button--spinner {
+  position: relative;
+  z-index: 1;
+  margin-right: 5px;
 }
-.Button--primary {
-  color: #fff;
-  background-color: #2b8ff7;
-}
-.Button--primary.disabled,
-.Button--primary:active {
-  color: rgba(255,255,255,0.6);
-  background-color: rgba(43,143,247,0.8);
-}
-.Button--caution {
-  color: #fff;
-  background-color: #ff4351;
-}
-.Button--caution.disabled,
-.Button--caution:active {
-  color: rgba(255,255,255,0.6);
-  background-color: rgba(255,67,81,0.8);
-}
+/*# sourceMappingURL=src/Button/index.css.map */
 .Switcher {
   position: relative;
   width: 60px;
