@@ -1,7 +1,7 @@
 var webpack = require('webpack')
 var WebpackDevServer = require('webpack-dev-server')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var port = 8080
+var port = 8082
 var host = getIP()
 var localServer = `http://${host}:${port}`
 
