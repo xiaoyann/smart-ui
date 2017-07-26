@@ -19,6 +19,7 @@ import $loading from './Loading'
 import $actionSheet from './ActionSheet'
 import $toast from './Toast'
 import $dialog from './Dialog'
+import Calendar from './Calendar'
 
 const components = {
   TabBar,
@@ -38,7 +39,8 @@ const components = {
   Loadmore,
   Spinner,
   Button,
-  Switcher
+  Switcher,
+  Calendar
 }
 
 // register globally all components

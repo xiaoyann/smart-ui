@@ -17,31 +17,33 @@ import Loadmore from './demos/Loadmore'
 import Popup from './demos/Popup'
 import Button from './demos/Button'
 import Switcher from './demos/Switcher'
+import Calendar from './demos/Calendar'
 
 const views = {
-	About,
-	Demos,
-	Cell,
-	Radio,
-	Checkbox,
-	TabBar,
-	Field,
-	Datepicker,
-	Selector,
-	Modal,
-	ActionSheet,
-	Loading,
-	Spinner,
-	Toast,
-	Dialog,
-	Loadmore,
-	Popup,
-	Button,
-	Switcher
+  About,
+  Demos,
+  Cell,
+  Radio,
+  Checkbox,
+  TabBar,
+  Field,
+  Datepicker,
+  Selector,
+  Modal,
+  ActionSheet,
+  Loading,
+  Spinner,
+  Toast,
+  Dialog,
+  Loadmore,
+  Popup,
+  Button,
+  Switcher,
+  Calendar
 }
 
 const routes = Object.keys(views).map(
-	name => ({ 
+	name => ({
 		path: `/${name}`,
 		component: views[name]
 	})

@@ -17,7 +17,8 @@
 		<Cell title="Spinner" to="/Spinner"></Cell>
 		<Cell title="Toast" to="/Toast"></Cell>
 		<Cell title="Dialog" to="/Dialog"></Cell>
-		<Cell title="Loadmore" to="/Loadmore"></Cell>
+    <Cell title="Loadmore" to="/Loadmore"></Cell>
+		<Cell title="Calendar" to="/Calendar"></Cell>
 	</CellGroup>
 </div>
 </template>
