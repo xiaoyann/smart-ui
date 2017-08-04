@@ -1,0 +1,59 @@
+.Picker {
+  position: relative;
+  background-color: #fff;
+}
+
+.Picker--hd {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  background-color: #f7f7f8;
+  button {
+    outline: none;
+    height: 40px;
+    padding: 0 15px;
+    border: 0;
+    color: #007aff;
+    background-color: transparent;
+  }
+}
+
+.Picker--bd {
+  position: relative;
+  display: flex;
+  height: 180px;
+  overflow: hidden;
+  background-color: #cfd5da;
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 72px;
+    width: 100%;
+    height: 36px;
+    border-top: 1px solid #a8abb0;
+    border-bottom: 1px solid #a8abb0;
+    box-sizing: border-box;
+  }
+}
+
+.Picker--col {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  li {
+    width: 100%;
+    height: 36px;
+    box-sizing: border-box;
+    line-height: @height;
+    text-align: center;
+    color: #353535;
+  }
+}
+

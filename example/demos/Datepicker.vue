@@ -5,9 +5,9 @@
 			预约日期：{{date}}
 		</li>
 	</ul>
-	<Cell title="预约日期" arrow>
-		<Datepicker slot="body" placeholder="请选择预约日期" v-model="date"/>
-	</Cell>
+	<CellGroup :hasBorder="false">
+    <Datepicker title="预约日期" placeholder="请选择预约日期" v-model="date"/>
+  </CellGroup>
 </div>
 </template>
 
@@ -15,7 +15,7 @@
 export default {
 	data() {
 		return {
-			date: ''
+			date: '2018-08-08'
 		}
 	}
 }
