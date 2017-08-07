@@ -5,7 +5,7 @@
     <li>喜欢哪些城市？：{{hobby}}</li>
   </ul>
 
-  <Selector title="春天在哪里？" placeholder="请选择" @input="change">
+  <Selector title="春天在哪里？" placeholder="请选择" v-model="city">
     <!-- 自定义 option 内容 -->
     <SelectorOption value="1" text="长沙">
       <div>
@@ -27,7 +27,7 @@
 export default {
   data() {
     return {
-      city: 0,
+      city: '',
       hobby: ["1", "3", "5", "7", "9"],
       options: [
         { text: '北京', value: "1" },
@@ -37,8 +37,8 @@ export default {
   },
 
   methods: {
-    change(a) {
-      console.log(a)
+    change(v) {
+      this.city = v
     }
   },
 

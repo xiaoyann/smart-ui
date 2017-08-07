@@ -42,7 +42,7 @@ const Selector = create({
     },
     //
     options: {
-      validator(opts) {
+      validator (opts) {
         let isValid = true
         if (Array.isArray(opts)) {
           opts.some(opt => {
@@ -63,7 +63,7 @@ const Selector = create({
     }
   },
 
-  data() {
+  data () {
     return {
       visible: false,
       content: '',
@@ -72,12 +72,12 @@ const Selector = create({
   },
 
   watch: {
-    value() {
+    value () {
       this.checkStatus()
     }
   },
 
-  created() {
+  created () {
     // 是否使用了 options 属性
     this.hasOptions = typeof this.options !== 'undefined'
     if (this.hasOptions) {
@@ -85,30 +85,30 @@ const Selector = create({
     }
   },
 
-  mounted() {
+  mounted () {
     this.checkStatus()
   },
 
   computed: {
-    isMultiple() {
+    isMultiple () {
       return this.multiple !== false
     }
   },
 
   methods: {
-    open() {
+    open () {
       this.visible = true
     },
 
-    hide() {
+    hide () {
       this.visible = false
     },
 
-    isSelected(value) {
+    isSelected (value) {
       return this.isMultiple ? this.value.indexOf(value) > -1 : isEqual(value, this.value)
     },
 
-    eachOptions(callback) {
+    eachOptions (callback) {
       [].forEach.call(this.$refs.options.childNodes, child => {
         if (child.nodeType === 1) {
           callback(this.takeProps(child), child)
@@ -116,7 +116,7 @@ const Selector = create({
       })
     },
 
-    checkStatus() {
+    checkStatus () {
       const conts = []
       this.eachOptions((opt, child) => {
         if (opt.selected) conts.push(opt.text)
@@ -132,7 +132,7 @@ const Selector = create({
     //   selected: false,
     //   disabled: false
     // }
-    takeProps(node) {
+    takeProps (node) {
       const props = {
         text: node.getAttribute('data-text'),
         value: node.getAttribute('data-value'),
@@ -142,7 +142,7 @@ const Selector = create({
       return props
     },
 
-    onSelect(e) {
+    onSelect (e) {
       let node = e.target
 
       while (node) {
@@ -178,12 +178,11 @@ const Selector = create({
   }
 })
 
-
-function isEqual(a, b) {
+function isEqual (a, b) {
   return a + '' === b + ''
 }
 
-function toogleStatus(node, selected) {
+function toogleStatus (node, selected) {
   if (selected) {
     node.classList.add('active')
   } else {
