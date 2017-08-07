@@ -16,11 +16,11 @@ export default create({
   },
 
   computed: {
-    isCustom() {
+    isCustom () {
       return !!this.$slots.default
     },
-    isDisabled() {
+    isDisabled () {
       return this.disabled !== false
     }
-  },
+  }
 })

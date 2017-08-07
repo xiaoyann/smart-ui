@@ -1,6 +1,6 @@
 <div>
   <Cell :title="title" arrow @click="open">
-    <div class="Selector--values" slot="body">{{content}}</div>
+    <div class="Selector--values" :class="{'Selector--values-shallow': !content}" slot="body">{{content || placeholder}}</div>
   </Cell>
   <Popup v-model="visible">
     <div class="Selector smart-border-top">
