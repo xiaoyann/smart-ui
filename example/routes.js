@@ -18,6 +18,8 @@ import Popup from './demos/Popup'
 import Button from './demos/Button'
 import Switcher from './demos/Switcher'
 import Calendar from './demos/Calendar'
+import Picker from './demos/Picker'
+import ScrollView from './demos/ScrollView'
 
 const views = {
   About,
@@ -39,7 +41,9 @@ const views = {
   Popup,
   Button,
   Switcher,
-  Calendar
+  Calendar,
+  Picker,
+  ScrollView
 }
 
 const routes = Object.keys(views).map(

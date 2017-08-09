@@ -27,7 +27,7 @@
 export default {
   data() {
     return {
-      city: 0,
+      city: '',
       hobby: ["1", "3", "5", "7", "9"],
       options: [
         { text: '北京', value: "1" },

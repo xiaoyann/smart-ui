@@ -18,7 +18,9 @@
 		<Cell title="Toast" to="/Toast"></Cell>
 		<Cell title="Dialog" to="/Dialog"></Cell>
     <Cell title="Loadmore" to="/Loadmore"></Cell>
-		<Cell title="Calendar" to="/Calendar"></Cell>
+    <Cell title="Calendar" to="/Calendar"></Cell>
+    <Cell title="Picker" to="/Picker"></Cell>
+		<Cell title="ScrollView" to="/ScrollView"></Cell>
 	</CellGroup>
 </div>
 </template>
