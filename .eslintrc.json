@@ -1,21 +1,6 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true
-  },
-  "extends": "vue",
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeature": {
-      "experimentalObjectRestSpread": true
-    }
-  },
-  "rules": {
-    "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "never"],
-    "space-before-function-paren": ["error", "never"],
-    "brace-style": ["error", "stroustrup"]
-  }
+  "extends": [
+    "standard",
+    "plugin:vue/recommended"
+  ]
 }
