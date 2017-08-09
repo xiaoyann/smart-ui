@@ -23,7 +23,7 @@
 </template>
 
 <script>
-function getDocInfo() {
+function getDocInfo () {
   return {
     scrollTop: document.body.scrollTop,
     pageHeight: document.body.offsetHeight,
@@ -46,7 +46,7 @@ export default {
     }
   },
 
-  data() {
+  data () {
     return {
       show: false
     }
@@ -54,13 +54,13 @@ export default {
 
   watch: {
     // visible 变化时去检测组件是否可见
-    visible(newVal) {
+    visible (newVal) {
       this.detectVisible()
     }
   },
 
   methods: {
-    detectVisible() {
+    detectVisible () {
       const docInfo = getDocInfo()
       if (docInfo.pageHeight >= docInfo.windowHeight && this.visible) {
         this.show = true
@@ -69,7 +69,7 @@ export default {
       }
     },
 
-    onscroll() {
+    onscroll () {
       this.detectVisible()
       const docInfo = getDocInfo()
       if (docInfo.pageHeight - docInfo.scrollTop === docInfo.windowHeight && this.visible) {
@@ -77,22 +77,22 @@ export default {
       }
     },
 
-    startListen() {
+    startListen () {
       window.addEventListener('scroll', this.onscroll)
     },
 
-    stopListen() {
+    stopListen () {
       window.removeEventListener('scroll', this.onscroll)
     }
   },
 
-  mounted() {
+  mounted () {
     this.detectVisible()
     this.startListen()
   },
 
   // 组件销毁时解除事件监听
-  destroyed() {
+  destroyed () {
     this.stopListen()
   }
 }

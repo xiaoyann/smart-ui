@@ -37,18 +37,18 @@ export default {
   },
 
   watch: {
-    value(newVal) {
+    value (newVal) {
       this.checkStatus(newVal)
     }
   },
 
-  mounted() {
+  mounted () {
     this.watchChildren()
     this.checkStatus(this.value)
   },
 
   methods: {
-    setValue(checked, val) {
+    setValue (checked, val) {
       const values = []
       this.$refs.cells.$children.forEach(child => {
         if (child.checked) {
@@ -58,13 +58,13 @@ export default {
       this.$emit('input', values)
     },
 
-    watchChildren() {
+    watchChildren () {
       this.$refs.cells.$children.forEach(
         child => child.$on('click', this.setValue)
       )
     },
 
-    checkStatus(values) {
+    checkStatus (values) {
       this.$refs.cells.$children.forEach(
         child => child.checkStatus(values)
       )

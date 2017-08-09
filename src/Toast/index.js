@@ -14,12 +14,12 @@ const toast = new Vue({
 })()
 
 export default {
-  show() {
+  show () {
     toast.show.apply(toast, arguments)
     return toast
   },
 
-  zIndex(zIndex) {
+  zIndex (zIndex) {
     toast.zIndex = zIndex
     return toast
   }

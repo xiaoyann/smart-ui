@@ -14,15 +14,15 @@ const loading = new Vue({
 })()
 
 export default {
-  show(message) {
+  show (message) {
     loading.show(message)
   },
 
-  hide() {
+  hide () {
     loading.hide()
   },
 
-  zIndex(zIndex) {
+  zIndex (zIndex) {
     loading.zIndex = zIndex
     return loading
   }

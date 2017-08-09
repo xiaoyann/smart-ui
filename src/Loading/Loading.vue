@@ -41,7 +41,7 @@
 import { Spinner } from '../Spinner'
 
 export default {
-  data() {
+  data () {
     return {
       message: '',
       visible: false,
@@ -54,12 +54,12 @@ export default {
   },
 
   methods: {
-    show(message) {
+    show (message) {
       this.message = message
       this.visible = true
     },
 
-    hide() {
+    hide () {
       this.message = ''
       this.visible = false
       this.zIndex = 4

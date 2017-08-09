@@ -105,32 +105,29 @@ export default {
   },
 
   computed: {
-    hasIcon() {
+    hasIcon () {
       return !!this.$slots.icon
     },
-    hasArrow() {
+    hasArrow () {
       return this.arrow === false ? false
-       : this.to ? true : typeof this.arrow !== 'undefined'
+        : this.to ? true : typeof this.arrow !== 'undefined'
     }
   },
 
   methods: {
-    handleClick() {
+    handleClick () {
       if (this.to) {
         // is standard URL
-        if (/^https?\:/.test(this.to)) {
+        if (/^https?:/.test(this.to)) {
           window.location = this.to
-        }
-        else {
+        } else {
           if (this.$router) {
             this.$router.push(this.to)
-          }
-          else {
+          } else {
             this.$emit('click')
           }
         }
-      }
-      else {
+      } else {
         this.$emit('click')
       }
     }

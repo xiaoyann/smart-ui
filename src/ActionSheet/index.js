@@ -11,7 +11,7 @@ const destructiveColor = '#FF3B30'
 const options = create({
   name: 'ActionSheet',
 
-  data() {
+  data () {
     return {
       visible: false,
       title: '',
@@ -36,13 +36,13 @@ const options = create({
     Modal
   },
 
-  created() {
+  created () {
     this.init()
   },
 
   methods: {
     // set default value for data
-    init() {
+    init () {
       this.title = ''
       this.options = []
       this.hideCancel = false
@@ -52,7 +52,7 @@ const options = create({
     // @title: String,
     // @options: Array
     // @hideCancel: Boolean
-    show(title, options, hideCancel = false) {
+    show (title, options, hideCancel = false) {
       this.title = title
       this.hideCancel = hideCancel
       this.options = options.map(opt => {
@@ -60,9 +60,8 @@ const options = create({
         // { text: String, disable: Boolean, destructive: Boolean, onSelect: Function }
         if (typeof opt === 'object') {
           return opt
-        }
         // opt is string
-        else {
+        } else {
           return { text: opt, disable: false, destructive: false }
         }
       })
@@ -70,14 +69,14 @@ const options = create({
     },
 
     // hide the ActionSheet
-    hide() {
+    hide () {
       this.visible = false
       // should init again after the hide, since the ActionSheet is shared
       this.init()
     },
 
     // call option.onSelect and hide when click the option
-    handleClick(i) {
+    handleClick (i) {
       const conf = this.options[i]
       if (!conf.disable && conf.onSelect) {
         conf.onSelect()
@@ -86,7 +85,7 @@ const options = create({
     },
 
     // what color is the option
-    getFontColor(opt) {
+    getFontColor (opt) {
       // disabled
       if (opt.disable) {
         return disableColor
@@ -101,9 +100,8 @@ const options = create({
   }
 })
 
-
 export default {
-  init() {
+  init () {
     // only one instance of ActionSheet in an Application
     if (!this.actionsheet) {
       this.actionsheet = new Vue(options)
@@ -120,7 +118,7 @@ export default {
   //    zIndex: 100,
   //    tintColor: '#38f'
   // })
-  config(conf) {
+  config (conf) {
     ['tintColor', 'zIndex'].forEach(name => {
       if (typeof conf[name] !== 'undefined') {
         this.actionsheet[name] = conf[name]
@@ -129,11 +127,11 @@ export default {
     return this
   },
 
-  show() {
+  show () {
     this.actionsheet.show.apply(this.actionsheet, arguments)
   },
 
-  hide() {
+  hide () {
     this.actionsheet.hide.apply(this.actionsheet, arguments)
   }
 }

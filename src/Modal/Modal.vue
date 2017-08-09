@@ -58,32 +58,31 @@ export default {
     }
   },
 
-  data() {
+  data () {
     return {
       visible: false
     }
   },
 
   computed: {
-    animName() {
+    animName () {
       const name = this.anim
       if (name === 'none') {
         return ''
-      }
-      else {
+      } else {
         return `smart-anim--${name}`
       }
     }
   },
 
   watch: {
-    value(newVal) {
+    value (newVal) {
       this.visible = newVal
     }
   },
 
   methods: {
-    hanldeClick(e) {
+    hanldeClick (e) {
       if (e.target === this.$refs.modal && this.dismissOnClick) {
         this.$emit('input', false)
       }

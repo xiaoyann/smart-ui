@@ -2,13 +2,13 @@ import create from './index.tpl'
 import './index.styl'
 
 export default create({
-  data() {
+  data () {
     return {
       direction: 1
     }
   },
 
-  mounted() {
+  mounted () {
   },
 
   methods: {

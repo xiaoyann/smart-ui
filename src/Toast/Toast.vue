@@ -54,7 +54,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       visible: false,
       content: '',
@@ -64,7 +64,7 @@ export default {
   },
 
   methods: {
-    show(content, position = 'center', time = 2000, callback) {
+    show (content, position = 'center', time = 2000, callback) {
       if (typeof position === 'function') {
         callback = position
         position = 'center'
@@ -87,11 +87,11 @@ export default {
       }, time)
     },
 
-    hide() {
+    hide () {
       this.visible = false
     },
 
-    afterLeave() {
+    afterLeave () {
       this.content = ''
       this.position = 'center'
       this.zIndex = 4
@@ -99,4 +99,3 @@ export default {
   }
 }
 </script>
-

@@ -60,18 +60,17 @@ export default {
 
   computed: {
     // whether has slot
-    hasSlot() {
+    hasSlot () {
       return Object.keys(this.$slots).length > 0
     }
   },
 
   methods: {
-    handleClick() {
+    handleClick () {
       if (this.to && this.$router) {
         // do not produce history, It is not necessary
         this.$router.replace(this.to)
-      }
-      else {
+      } else {
         this.$emit('click')
       }
     }

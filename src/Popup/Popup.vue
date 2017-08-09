@@ -44,30 +44,30 @@ export default {
       default: 2
     },
     position: {
-      validator(value) {
+      validator (value) {
         return value === 'bottom' || value === 'top'
       },
       default: 'bottom'
     }
   },
 
-  data() {
+  data () {
     return {
       visible: false
     }
   },
 
   computed: {
-    conf() {
+    conf () {
       return conf[this.position]
     }
   },
 
   watch: {
-    value(newVal) {
+    value (newVal) {
       this.visible = newVal
     },
-    visible(newVal, oldVal) {
+    visible (newVal, oldVal) {
       if (newVal !== this.value) {
         this.$emit('input', newVal)
       }

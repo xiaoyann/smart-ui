@@ -109,28 +109,28 @@ export default {
     }
   },
 
-  data() {
+  data () {
     return {
       val: this.value
     }
   },
 
   watch: {
-    val(newVal) {
+    val (newVal) {
       this.$emit('input', newVal)
     },
 
-    value(newVal) {
+    value (newVal) {
       this.val = newVal
     }
   },
 
   methods: {
-    handleInput(e) {
+    handleInput (e) {
       this.val = e.target.value
     },
 
-    clear() {
+    clear () {
       this.val = ''
     }
   }

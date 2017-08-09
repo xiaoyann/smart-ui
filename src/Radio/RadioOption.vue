@@ -75,7 +75,7 @@
 
 <template>
 <div class="RadioOptionBox">
-  <div class="RadioOption smart-border-top" :class="{active: active}"" @click="onClick">
+  <div class="RadioOption smart-border-top" :class="{active: active}" @click="onClick">
     <div class="RadioOption--icon">
       <span class="RadioOption--iconInner"></span>
     </div>
@@ -84,7 +84,7 @@
     </div>
   </div>
   <div class="RadioOption--ipt" v-if="hasInput">
-    <input ref="ipt" type="text" placeholder="请输入..." v-model="val" />
+    <input ref="ipt" type="text" placeholder="请输入..." v-model="val">
   </div>
 </div>
 </template>
@@ -98,7 +98,7 @@ export default {
     'input'
   ],
 
-  data() {
+  data () {
     return {
       val: this.value,
       active: false
@@ -106,26 +106,26 @@ export default {
   },
 
   computed: {
-    hasInput() {
+    hasInput () {
       return typeof this.input !== 'undefined'
     }
   },
 
   watch: {
-    val(v) {
+    val (v) {
       this.$emit('changed', v)
     }
   },
 
   methods: {
-    onClick() {
+    onClick () {
       if (this.hasInput) {
         this.$refs.ipt.focus()
       }
       this.$emit('changed', this.val)
     },
 
-    checkStatus(radioValue) {
+    checkStatus (radioValue) {
       this.active = radioValue === this.val
     }
   }

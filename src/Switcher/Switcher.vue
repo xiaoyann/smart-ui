@@ -71,13 +71,13 @@ export default {
   },
 
   computed: {
-    on() {
+    on () {
       return this.onVal === this.value
     }
   },
 
   methods: {
-    handleClick() {
+    handleClick () {
       this.$emit('input', this.on ? this.offVal : this.onVal)
     }
   }

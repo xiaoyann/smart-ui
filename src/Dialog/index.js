@@ -5,7 +5,7 @@ const instance = new Vue({
   ...Dialog
 })
 
-;(function() {
+;(function () {
   const id = 'smart-ui-dialog-mount-point'
   const mountPoint = document.createElement('div')
   mountPoint.id = id
@@ -14,19 +14,19 @@ const instance = new Vue({
 })()
 
 export default {
-  alert() {
+  alert () {
     instance.alert.apply(instance, arguments)
   },
 
-  confirm() {
+  confirm () {
     instance.confirm.apply(instance, arguments)
   },
 
-  prompt() {
+  prompt () {
     instance.prompt.apply(instance, arguments)
   },
 
-  zIndex(zIndex) {
+  zIndex (zIndex) {
     instance.zIndex = zIndex
     return instance
   }

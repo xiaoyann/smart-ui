@@ -47,7 +47,7 @@ export default {
   },
 
   computed: {
-    style() {
+    style () {
       return {
         width: this.size + 'px',
         height: this.size + 'px',

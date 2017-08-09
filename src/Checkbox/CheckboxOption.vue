@@ -81,7 +81,7 @@ export default {
     'value'
   ],
 
-  data() {
+  data () {
     return {
       checked: false
     }
@@ -92,12 +92,12 @@ export default {
   },
 
   methods: {
-    handleClick() {
+    handleClick () {
       this.checked = !this.checked
       this.$emit('click', this.checked, this.value)
     },
 
-    checkStatus(values) {
+    checkStatus (values) {
       this.checked = values.indexOf(this.value) > -1
     }
   }

@@ -29,27 +29,27 @@ export default {
   ],
 
   watch: {
-    value(newVal) {
+    value (newVal) {
       this.checkStatus(newVal)
     }
   },
 
-  mounted() {
+  mounted () {
     this.watchChildren()
     this.checkStatus(this.value)
   },
 
   methods: {
-    setValue(v) {
+    setValue (v) {
       this.$emit('input', v)
       this.checkStatus(v)
     },
 
-    checkStatus(v) {
+    checkStatus (v) {
       this.$children.forEach(child => child.checkStatus(v))
     },
 
-    watchChildren() {
+    watchChildren () {
       this.$children.forEach(
         child => child.$on('changed', this.setValue)
       )

@@ -101,7 +101,8 @@
         </div>
         <div :class="{'Dialog--separator': buttons.length === 2}">
           <a
-            v-for="btn in buttons"
+            v-for="(btn, k) in buttons"
+            :key="'dialog-btn-key-'+ k"
             class="Dialog--button smart-border-top"
             :style="{'width': buttons.length === 2 ? '50%' : '100%'}"
             href="javascript:;"
@@ -119,29 +120,27 @@
 <script>
 import { Modal } from '../Modal'
 
-function getType(obj) {
+function getType (obj) {
   return Object.prototype.toString.call(obj).slice(8, -1)
 }
 
-function isButton(obj) {
+function isButton (obj) {
   const type = getType(obj)
   return /^(Object|Array|Function)$/.test(type)
 }
 
-function createButtons(options) {
+function createButtons (options) {
   let buttons = []
   const type = getType(options)
 
   if (type === 'Object') {
     buttons = [options]
-  }
-  else if (type === 'Function') {
+  } else if (type === 'Function') {
     buttons = [{
       title: '确定',
       onClick: options
     }]
-  }
-  else if (type === 'Array') {
+  } else if (type === 'Array') {
     buttons = options
   }
 
@@ -152,15 +151,14 @@ function createButtons(options) {
   return buttons.map(btn => {
     if (getType(btn) !== 'Object') {
       return { title: btn }
-    }
-    else {
+    } else {
       return btn
     }
   })
 }
 
 export default {
-  data() {
+  data () {
     return {
       visible: false,
       title: '',
@@ -177,18 +175,17 @@ export default {
   },
 
   computed: {
-    width() {
+    width () {
       return Math.floor(document.body.clientWidth * 0.85 / 15) * 15 + 'px'
     }
   },
 
   methods: {
-    alert(title, content, buttons) {
+    alert (title, content, buttons) {
       if (arguments.length === 1) {
         content = title
         title = undefined
-      }
-      else {
+      } else {
         if (isButton(content)) {
           buttons = content
           content = title
@@ -201,12 +198,11 @@ export default {
       this.visible = true
     },
 
-    confirm(title, content, callback) {
+    confirm (title, content, callback) {
       if (arguments.length === 1) {
         content = title
         title = undefined
-      }
-      else {
+      } else {
         if (typeof content === 'function') {
           callback = content
           content = title
@@ -216,20 +212,22 @@ export default {
       this.alert(title, content, [
         {
           title: '取消',
-          onClick() {
+          onClick () {
+            // eslint-disable-next-line
             if (callback) callback(false)
           }
         },
         {
           title: '确认',
-          onClick() {
+          onClick () {
+            // eslint-disable-next-line
             if (callback) callback(true)
           }
         }
       ])
     },
 
-    prompt(title, callback) {
+    prompt (title, callback) {
       this.isPrompt = true
       this.alert(title, '', [
         {
@@ -244,14 +242,14 @@ export default {
       ])
     },
 
-    handleClick(btn) {
+    handleClick (btn) {
       if (btn.onClick) {
         btn.onClick()
       }
       this.visible = false
     },
 
-    afterLeave() {
+    afterLeave () {
       this.title = ''
       this.content = ''
       this.buttons = []
