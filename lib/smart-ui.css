@@ -359,6 +359,11 @@
   border-color: #fff;
   -webkit-transform: rotate(45deg) scale(1);
           transform: rotate(45deg) scale(1);
+}.Field--warn {
+  border: 1px solid #ff4949;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 2px 0 #ff4949;
+          box-shadow: 0 0 2px 0 #ff4949;
 }
 .Field--bd {
   -webkit-box-flex: 1;
@@ -435,6 +440,7 @@
   right: 7px;
   background-color: #fff;
 }
+/*# sourceMappingURL=src/Field/index.css.map */
 .Datepicker {
   -webkit-box-flex: 1;
       -ms-flex: 1;
