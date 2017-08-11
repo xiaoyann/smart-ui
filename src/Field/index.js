@@ -62,6 +62,7 @@ export default create({
 
     clear() {
       this.val = ''
+      this.$emit('update:error', '')
     }
   }
 })
