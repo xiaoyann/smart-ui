@@ -44,8 +44,7 @@ const components = {
 // register globally all components
 function install (Vue) {
   for (const name in components) {
-    const component = components[name].component || components[name]
-    Vue.component(name, component)
+    Vue.component(name, components[name])
   }
   Vue.prototype.$actionSheet = $actionSheet
   Vue.prototype.$loading = $loading
@@ -53,23 +52,4 @@ function install (Vue) {
   Vue.prototype.$dialog = $dialog
 }
 
-// Components can export a function named config to
-// customize some options for user
-function config (name) {
-  const args = [].slice.call(arguments, 1)
-  const modules = {
-    ActionSheet: $actionSheet,
-    Loading: $loading,
-    Toast: $toast,
-    Dialog: $dialog
-  }
-  const module = components[name] || modules[name]
-  if (typeof module.config === 'function') {
-    module.config.apply(null, args)
-  } else {
-    console.warn(`${name}.config is not a function`)
-  }
-}
-
-/* eslint-disable */
-module.exports = { install, config }
+module.exports = { install }
