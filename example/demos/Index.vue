@@ -1,6 +1,6 @@
 <template>
 <div>
-	<CellGroup class="mb15">
+	<CellGroup>
 		<Cell title="TabBar" to="/TabBar"></Cell>
 		<Cell title="Cell" to="/Cell"></Cell>
 		<Cell title="Radio" to="/Radio"></Cell>

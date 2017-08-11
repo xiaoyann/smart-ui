@@ -5,7 +5,7 @@
     <li>喜欢哪些城市？：{{hobby}}</li>
   </ul>
 
-  <Selector v-model="city" title="春天在哪里？" placeholder="请选择">
+  <Selector title="春天在哪里？" placeholder="请选择" v-model="city">
     <!-- 自定义 option 内容 -->
     <SelectorOption value="1" text="长沙">
       <div>
@@ -13,7 +13,7 @@
         <p style="font-size: 12px; color: #999">湖南省会城市，娱乐城市~</p>
       </div>
     </SelectorOption>
-    <SelectorOption :value="0" text="岳阳"></SelectorOption>
+    <SelectorOption :value="6" text="岳阳"></SelectorOption>
     <SelectorOption value="3" text="湘潭" disabled></SelectorOption>
     <SelectorOption value="4" text="常德"></SelectorOption>
   </Selector>
@@ -33,6 +33,12 @@ export default {
         { text: '北京', value: "1" },
         { text: '上海', value: "2", disabled: true },
       ]
+    }
+  },
+
+  methods: {
+    change(v) {
+      this.city = v
     }
   },
 

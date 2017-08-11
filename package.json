@@ -1,6 +1,6 @@
 {
   "name": "smart-ui",
-  "version": "2.1.9",
+  "version": "2.5.1",
   "description": "High Quality Mobile UI Componets by Vue.js 2.",
   "main": "lib/smart-ui.js",
   "scripts": {
@@ -9,8 +9,9 @@
     "dev": "node example/server.js",
     "build:demo": "rm -rf docs/demo && node example/build.js",
     "build": "yarn run lint && node ./webpack.config.js",
-    "lint": "eslint --ext .js,.vue src --fix",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "lint": "eslint --ext .js,.vue src",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "prepublish": "yarn run build"
   },
   "pre-commit": [
     "lint"

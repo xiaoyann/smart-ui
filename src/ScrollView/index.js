@@ -36,9 +36,9 @@ function createGesturePoint (event) {
 }
 
 // get height of the element
-function getHeight (element) {
-  return element.getBoundingClientRect().height
-}
+// function getHeight (element) {
+//   return element.getBoundingClientRect().height
+// }
 
 function throttle (fn) {
   let ended = true

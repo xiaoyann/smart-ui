@@ -6,7 +6,7 @@ import { TabBar, TabBarItem } from './TabBar'
 import { Cell, CellGroup } from './Cell'
 import { Radio, RadioOption } from './Radio'
 import { Checkbox, CheckboxOption } from './Checkbox'
-import { Field } from './Field'
+import Field from './Field'
 import Datepicker from './Datepicker'
 import { Selector, SelectorOption } from './Selector'
 import { Modal } from './Modal'
@@ -19,9 +19,6 @@ import $loading from './Loading'
 import $actionSheet from './ActionSheet'
 import $toast from './Toast'
 import $dialog from './Dialog'
-import Calendar from './Calendar'
-import Picker from './Picker'
-import ScrollView from './ScrollView'
 
 const components = {
   TabBar,
@@ -41,10 +38,7 @@ const components = {
   Loadmore,
   Spinner,
   Button,
-  Switcher,
-  Calendar,
-  Picker,
-  ScrollView
+  Switcher
 }
 
 // register globally all components
@@ -53,7 +47,7 @@ function install (Vue) {
     const component = components[name].component || components[name]
     Vue.component(name, component)
   }
-  Vue.prototype.$actionSheet = $actionSheet.init()
+  Vue.prototype.$actionSheet = $actionSheet
   Vue.prototype.$loading = $loading
   Vue.prototype.$toast = $toast
   Vue.prototype.$dialog = $dialog
@@ -77,5 +71,5 @@ function config (name) {
   }
 }
 
-// eslint-disable-next-line
+/* eslint-disable */
 module.exports = { install, config }
