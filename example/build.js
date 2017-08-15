@@ -4,7 +4,7 @@ var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var InlineManifestPlugin = require('inline-manifest-webpack-plugin')
-var WebpackChunkHash = require("webpack-chunk-hash");
+var WebpackChunkHash = require("webpack-chunk-hash")
 
 var config = {
 
@@ -21,7 +21,7 @@ var config = {
   },
 
   output: {
-    filename: 'js/[name].[chunkhash].js',
+    filename: 'js/[name].js?v=[chunkhash]',
     path: path.resolve(__dirname, '../docs/demo')
   },
 
@@ -103,7 +103,7 @@ var config = {
     }),
 
     // extract css into its own file
-    new ExtractTextPlugin('css/[name].[contenthash].css'),
+    new ExtractTextPlugin('css/[name].css?v=[contenthash]'),
   ]
 }
 
