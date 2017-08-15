@@ -6,9 +6,9 @@ import { TabBar, TabBarItem } from './TabBar'
 import { Cell, CellGroup } from './Cell'
 import { Radio, RadioOption } from './Radio'
 import { Checkbox, CheckboxOption } from './Checkbox'
-import { Field } from './Field'
+import Field from './Field'
 import { Datepicker } from './Datepicker'
-import { Selector } from './Selector'
+import { Selector, SelectorOption } from './Selector'
 import { Modal } from './Modal'
 import { Popup } from './Popup'
 import { Loadmore } from './Loadmore'
@@ -32,6 +32,7 @@ const components = {
   Field,
   Datepicker,
   Selector,
+  SelectorOption,
   Modal,
   Popup,
   Loadmore,

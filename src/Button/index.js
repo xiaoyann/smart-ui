@@ -1,46 +1,8 @@
-import Button from './Button'
+import create from './index.tpl'
+import './index.styl'
 
-const theme = {
-  default: {
-    button: {
-      className: 'Button--default'
-    },
-    spinner: {
-      bgcolor: '#ddd',
-      forecolor: 'transparent'
-    }
-  },
-  primary: {
-    button: {
-      className: 'Button--primary'
-    },
-    spinner: {
-      bgcolor: 'rgba(255, 255, 255, .4)',
-      forecolor: '#fff'
-    }
-  },
-  caution: {
-    button: {
-      className: 'Button--caution'
-    },
-    spinner: {
-      bgcolor: 'rgba(255, 255, 255, .4)',
-      forecolor: '#fff'
-    }
-  }
-}
-
-;(opt => {
-  Object.keys(opt).forEach(name => {
-    Button[name] = opt[name]
-  })
-})({
+export default create({
   props: {
-    // 字体大小
-    fontSize: {
-      type: String,
-      default: '18px'
-    },
     // 宽
     width: {
       type: String,
@@ -54,12 +16,20 @@ const theme = {
     // 圆角
     radius: {
       type: String,
-      default: '2px'
+      default: ''
     },
-    // 主题
-    theme: {
+    // 色彩
+    tintColor: {
       type: String,
-      default: 'default'
+      default: '#2b8ff7'
+    },
+    // 类型
+    type: {
+      default: 'normal',
+      validator(type) {
+        const types = ['normal', 'simple', 'cutout']
+        return types.indexOf(type) > -1
+      }
     },
     // 禁用
     disabled: {
@@ -76,33 +46,54 @@ const theme = {
   computed: {
     classes() {
       return {
-        Button: true,
-        disabled: this.disabled || this.loading,
-        ['Button--' + this.theme]: true
+        disabled: this.disabled || this.loading
       }
+    },
+
+    overlayStyles() {
+      const { type, tintColor } = this
+      const styles = {}
+      if (type === 'normal') {
+        styles['background-color'] = tintColor
+      }
+      else if (type === 'simple') {
+        styles['background-color'] = '#fff'
+      }
+      else if (type === 'cutout') {
+        styles['background-color'] = '#fff'
+      }
+      return styles
     },
 
     style() {
-      return {
+      const { type, tintColor } = this
+      const styles = {
         width: this.width,
         height: this.height,
         'border-radius': this.radius,
-        'font-size': this.fontSize
+        'font-size': this.height,
       }
+
+      if (type === 'normal') {
+        styles['color'] = '#fff'
+        styles['background-color'] = tintColor
+      }
+      else if (type === 'simple') {
+        styles['color'] = tintColor
+        styles['background-color'] = '#fff'
+      }
+      else if (type === 'cutout') {
+        styles['border'] = `1px solid ${tintColor}`
+        styles['color'] = tintColor
+        styles['background-color'] = '#fff'
+      }
+
+      return styles
     },
 
-    size() {
-      return parseInt(this.fontSize) + 1
-    },
-
-    bgcolor() {
-      const config = theme[this.theme]
-      return config.spinner.bgcolor
-    },
-
-    forecolor() {
-      const config = theme[this.theme]
-      return config.spinner.forecolor
+    spinnerSize() {
+      const size = parseFloat(this.height) * 0.45
+      return size < 12 ? 12 : size
     }
   },
 
@@ -115,8 +106,3 @@ const theme = {
   }
 })
 
-export function config(name, conf) {
-  theme[name] = conf
-}
-
-export default { component: Button, config }

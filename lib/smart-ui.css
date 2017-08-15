@@ -359,6 +359,11 @@
   border-color: #fff;
   -webkit-transform: rotate(45deg) scale(1);
           transform: rotate(45deg) scale(1);
+}.Field--warn {
+  border: 1px solid #ff4949;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 2px 0 #ff4949;
+          box-shadow: 0 0 2px 0 #ff4949;
 }
 .Field--bd {
   -webkit-box-flex: 1;
@@ -435,6 +440,7 @@
   right: 7px;
   background-color: #fff;
 }
+/*# sourceMappingURL=src/Field/index.css.map */
 .Datepicker {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -465,43 +471,109 @@
   line-height: 26px;
   font-size: 14px;
   text-align: right;
+}/*# sourceMappingURL=src/Selector/Option/index.css.map */.Selector {
+  position: relative;
 }
-.Selector {
+.Selector--values {
+  max-width: 40%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+.Selector--values-shallow {
+  color: #8e8e90;
+}
+.Selector--hd {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 40px;
+  background-color: #f0f0f0;
+}
+.Selector--bd {
+  max-height: 320px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.Selector--notice {
+  height: 40px;
+  padding-left: 15px;
+  line-height: 40px;
+  font-size: 12px;
+  color: #858585;
+}
+.Selector--confirm {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 14px;
+  color: #2b8ff7;
+}
+.Selector--option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+}
+.Selector--option.disabled .Selector--icon {
+  border-color: #e5e5e5;
+}
+.Selector--option.disabled .Selector--icon:after {
+  display: block;
+  border-color: #e5e5e5;
+}
+.Selector--option.active .Selector--icon {
+  border-color: #2b8ff7;
+}
+.Selector--option.active .Selector--icon:after {
+  display: block;
+  border-color: #2b8ff7;
+}
+.Selector--option--bd {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  position: relative;
-  height: 26px;
 }
-.Selector--select {
-  outline: none;
-  -webkit-appearance: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  width: 100%;
-  height: 26px;
-  border: none;
-  text-align: right;
-  font-size: 0;
-  color: #fff;
-  background-color: transparent;
+.Selector--icon {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
 }
-.Selector--overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  line-height: 26px;
-  font-size: 14px;
-  text-align: right;
-  background-color: #fff;
+.Selector--icon:after {
+  content: "";
+  display: none;
+  width: 5px;
+  height: 10px;
+  margin-top: 3px;
+  margin-left: 6px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #2b8ff7;
+  border-left: 0;
+  border-top: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
+.Selector--groupName {
+  padding: 5px 15px;
+  text-align: left;
+  font-size: 12px;
+  color: #858585;
+  background-color: #f5f5f5;
+}
+/*# sourceMappingURL=src/Selector/index.css.map */
 .Modal {
   position: fixed;
   top: 0;
@@ -564,9 +636,9 @@ to {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
 }
-}
-.Button {
-  outline: none;
+}.Button {
+  overflow: hidden;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -576,40 +648,27 @@ to {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 6px;
-  border: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+.Button--name {
+  font-size: 0.45em;
   line-height: 1;
 }
-.Button--default {
-  color: #666;
-  border: 1px solid #e5e5e5;
-  background-color: #f6f6f6;
+.Button--overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.5;
 }
-.Button--default.disabled,
-.Button--default:active {
-  color: rgba(102,102,102,0.6);
-  background-color: rgba(246,246,246,0.8);
+.Button--spinner {
+  position: relative;
+  z-index: 1;
+  margin-right: 5px;
 }
-.Button--primary {
-  color: #fff;
-  background-color: #2b8ff7;
-}
-.Button--primary.disabled,
-.Button--primary:active {
-  color: rgba(255,255,255,0.6);
-  background-color: rgba(43,143,247,0.8);
-}
-.Button--caution {
-  color: #fff;
-  background-color: #ff4351;
-}
-.Button--caution.disabled,
-.Button--caution:active {
-  color: rgba(255,255,255,0.6);
-  background-color: rgba(255,67,81,0.8);
-}
+/*# sourceMappingURL=src/Button/index.css.map */
 .Switcher {
   position: relative;
   width: 60px;
@@ -691,7 +750,13 @@ to {
   line-height: 1.5;
   color: #999;
   background-color: #fff;
-} 
+}
+
+.ActionSheet--options {
+  overflow: scroll;
+  max-height: 300px;
+  -webkit-overflow-scrolling: touch;
+}
 
 .ActionSheet--option {
   width: 100%;

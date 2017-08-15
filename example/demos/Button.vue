@@ -1,7 +1,7 @@
 <style lang="stylus">
 .demoButtonWrapper {
   padding: 15px;
-  .Button {
+  > .Button {
     margin-bottom: 10px;
   }
 }
@@ -9,18 +9,25 @@
 
 <template>
 <div class="demoButtonWrapper">
-  <Button :loading="loading" @click="handleClick">default</Button>
+  <Button tintColor="#2b8ff7" type="cutout">登录</Button>
+  <Button tintColor="#2b8ff7" type="normal" @click="handleClick" :loading="loading">登录</Button>
+  <Button tintColor="#2b8ff7" type="simple">登录</Button>
 
-  <Button theme="primary" :loading="loading" @click="handleClick">蓝色</Button>
-  <Button theme="primary" :loading="loading" @click="handleClick" disabled>蓝色（disabled）</Button>
-
-  <Button theme="caution" :loading="loading" @click="handleClick">警告</Button>
-
-  <Button theme="cutout" :loading="loading" @click="handleClick">登录</Button>
-
-  <div style="padding: 15px;">
-    <Button theme="primary-red" :loading="loading" radius="0" @click="handleClick">登录</Button>
+  <div class="flex" style="background-color: #e0e0e0; margin: 30px 0">
+    <div class="flex-1 gutter-10">
+      <Button height="30px" radius="5px" tintColor="#2b8ff7" type="cutout" disabled>登录</Button>
+    </div>
+    <div class="flex-1 gutter-10">
+      <Button height="30px" radius="5px" tintColor="#2b8ff7" type="normal" disabled>登录</Button>
+    </div>
+    <div class="flex-1 gutter-10">
+      <Button height="30px" radius="5px" tintColor="#2b8ff7" type="simple" disabled>登录</Button>
+    </div>
   </div>
+
+  <Button height="30px" tintColor="#ff4351" type="cutout">登录</Button>
+  <Button height="30px" tintColor="#ff4351" type="normal" :loading="true">登录</Button>
+  <Button height="30px" tintColor="#ff4351" type="simple">登录</Button>
 </div>
 </template>
 
@@ -45,4 +52,3 @@ export default {
   }
 }
 </script>
-
