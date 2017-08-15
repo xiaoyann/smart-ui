@@ -20,7 +20,8 @@
 <div>
 	<div class="header">
 		<h2 class="title">Smart UI</h2>
-		<p class="desc">Mobile UI Components by Vue.js 2</p>
+    <p class="desc">Mobile UI Components by Vue.js 2</p>
+    <p class="desc">{{version}}</p>
 	</div>
 	<CellGroup>
 		<Cell title="Demos" content="" to="/Demos">
@@ -38,3 +39,13 @@
 	</CellGroup>
 </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    version() {
+      return __CONFIG__.version
+    }
+  }
+}
+</script>

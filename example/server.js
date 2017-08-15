@@ -1,6 +1,6 @@
 var webpack = require('webpack')
 var WebpackDevServer = require('webpack-dev-server')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+var config = require('./base')
 var port = 8082
 var host = getIP()
 var localServer = `http://${host}:${port}`
@@ -20,73 +20,7 @@ function getIP() {
   return IPv4
 }
 
-var config = {
-
-	context: __dirname,
-
-	entry: {
-		app: [
-			'webpack-dev-server/client?' + localServer,
-			'./main.js'
-		],
-		vendor: [
-			'vue',
-			'vue-router'
-		]
-	},
-
-	resolve: {
-  	extensions: ['.js', '.vue'],
-  },
-
-  module: {
-  	rules: [
-      {
-        test: /.tpl$/,
-        loader: 'vue-template-loader',
-        options: {
-          transformToRequire: {
-            // The key should be element name,
-            // the value should be attribute name or its array
-            img: 'src'
-          }
-        }
-      },
-  		{
-  			test: /.js$/,
-  			exclude: /node_modules/,
-  			loader: 'babel-loader'
-  		},
-  		{
-	      test: /\.vue$/,
-	      loader: 'vue-loader',
-	    },
-	    {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader'
-      },
-      {
-	    	test: /\.css$/,
-	    	loaders: ['style-loader', 'css-loader']
-	    },
-      {
-	    	test: /\.(styl)$/,
-	    	loaders: ['style-loader', 'css-loader', 'stylus-loader']
-	    }
-  	]
-  },
-
-  plugins: [
-    // https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      template: './index.html'
-    })
-  ],
-
-  performance: {
-    hints: process.env.NODE_ENV === 'production'
-  }
-}
+config.entry.app.unshift('webpack-dev-server/client?' + localServer)
 
 var compiler = webpack(config)
 
